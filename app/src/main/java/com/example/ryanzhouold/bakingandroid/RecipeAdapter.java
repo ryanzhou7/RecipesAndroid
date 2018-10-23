@@ -6,17 +6,24 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.ryanzhouold.bakingandroid.model.Recipe;
 
 import java.util.List;
 
-public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
+public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder> {
 
     private List<Recipe> mRecipes;
+    ListItemOnClickHandler mListItemOnClickHandler;
 
-    public RecipeAdapter(List<Recipe> recipes){
+    public RecipeAdapter(List<Recipe> recipes, ListItemOnClickHandler listItemOnClickHandler){
         mRecipes = recipes;
+        mListItemOnClickHandler = listItemOnClickHandler;
+    }
+
+    interface ListItemOnClickHandler {
+        void onListItemClick(int index);
     }
 
     @NonNull
@@ -46,5 +53,24 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeViewHolder> {
 
     public void setRecipes(List<Recipe> mRecipes) {
         this.mRecipes = mRecipes;
+    }
+
+    public class RecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        private TextView mTVName;
+        public RecipeViewHolder(View itemView) {
+            super(itemView);
+            mTVName = itemView.findViewById(R.id.tv_recipe_list_item);
+            itemView.setOnClickListener(this);
+
+        }
+        void bind(Recipe recipe){
+            mTVName.setText(recipe.getName());
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            mListItemOnClickHandler.onListItemClick(position);
+        }
     }
 }

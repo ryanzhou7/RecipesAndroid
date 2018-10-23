@@ -11,6 +11,50 @@ public class Recipe implements Parcelable {
     private int servings;
     private String image;
 
+    protected Recipe(Parcel in) {
+        id = in.readLong();
+        name = in.readString();
+        ingredients = in.createTypedArray(Ingredient.CREATOR);
+        steps = in.createTypedArray(Step.CREATOR);
+        servings = in.readInt();
+        image = in.readString();
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("id: "+ id + "\n");
+        sb.append("name: "+ name + "\n");
+        return sb.toString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(name);
+        dest.writeTypedArray(ingredients, flags);
+        dest.writeTypedArray(steps, flags);
+        dest.writeInt(servings);
+        dest.writeString(image);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Recipe> CREATOR = new Creator<Recipe>() {
+        @Override
+        public Recipe createFromParcel(Parcel in) {
+            return new Recipe(in);
+        }
+
+        @Override
+        public Recipe[] newArray(int size) {
+            return new Recipe[size];
+        }
+    };
+
     public long getId() {
         return id;
     }
@@ -59,13 +103,4 @@ public class Recipe implements Parcelable {
         this.image = image;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-
-    }
 }
