@@ -2,7 +2,7 @@ package com.example.ryanzhouold.bakingandroid.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Ingredient {
+public class Ingredient{
     private double quantity;
     private String measurement;
 

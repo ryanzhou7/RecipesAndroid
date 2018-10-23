@@ -1,6 +1,9 @@
 package com.example.ryanzhouold.bakingandroid.model;
 
-public class Recipe {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Recipe implements Parcelable {
     private long id;
     private String name;
     private Ingredient[] ingredients;
@@ -54,5 +57,15 @@ public class Recipe {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+
     }
 }
