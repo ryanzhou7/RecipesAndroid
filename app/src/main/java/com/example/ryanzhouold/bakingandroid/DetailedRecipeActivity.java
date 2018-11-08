@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.example.ryanzhouold.bakingandroid.model.Recipe;
 import com.example.ryanzhouold.bakingandroid.model.Step;
 
-public class DetailedRecipeActivity extends AppCompatActivity {
+public class DetailedRecipeActivity extends AppCompatActivity{
     private TextView mTVStep;
     private Recipe mRecipe;
     @Override
@@ -17,11 +17,10 @@ public class DetailedRecipeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detailed_recipe);
         mTVStep = findViewById(R.id.tv_step);
         Intent intent = getIntent();
-        if(intent.hasExtra(MainActivity.RECIPE_KEY)){
-            mRecipe = intent.getParcelableExtra(MainActivity.RECIPE_KEY);
+        if(intent.hasExtra(RecipeListFragment.RECIPE_KEY)){
+            mRecipe = intent.getParcelableExtra(RecipeListFragment.RECIPE_KEY);
             mTVStep.setText(mRecipe.toString());
         }
 
     }
-
 }
