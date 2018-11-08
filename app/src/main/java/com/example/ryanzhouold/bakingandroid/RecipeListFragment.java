@@ -1,6 +1,7 @@
 package com.example.ryanzhouold.bakingandroid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.example.ryanzhouold.bakingandroid.model.Recipe;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.List;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,11 +25,20 @@ import android.widget.ProgressBar;
  * {@link RecipeListFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
  */
-public class RecipeListFragment extends Fragment implements RecipeListContract.View{
+public class RecipeListFragment extends Fragment implements RecipeListContract.View,
+        RecipeAdapter.ListItemOnClickHandler{
 
     private OnFragmentInteractionListener mListener;
     private ProgressBar mLoadRecipesProgressBar;
+    private RecipeAdapter mRecipeAdapter;
     private RecyclerView mRecipesRecyclerView;
+    private RecipeListPresenter mRecipeListPresenter;
+    private final String TAG = getClass().getName();
+    public final static String STEP_KEY = "STEP_KEY";
+    public final static String RECIPE_KEY = "RECIPE_KEY";
+
+    private RecyclerView mRecipesList;
+    private ProgressBar mLoadingIndicator;
 
     public RecipeListFragment() {
         // Required empty public constructor
@@ -38,16 +54,8 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
         mRecipesRecyclerView = rootView.findViewById(R.id.recycler_recipes);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         mRecipesRecyclerView.setLayoutManager(linearLayoutManager);
-
-         /*
-        mRecipesList = findViewById(R.id.rv_recipes);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        mRecipesList.setLayoutManager(linearLayoutManager);
-        mLoadingIndicator = findViewById(R.id.progressBar);
-        mLoadingIndicator.setVisibility(View.GONE);
-        getSupportLoaderManager().initLoader(RECIPES_LOADER_ID, null, this);
-        */
-
+        mRecipeListPresenter = new RecipeListPresenter(this);
+        mRecipeListPresenter.loadRecipes();
         return rootView;
     }
 
@@ -76,8 +84,22 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
     }
 
     @Override
-    public void showRecipes() {
+    public void showRecipes(String data) {
+        if(data!=null) {
+            Gson gson = new Gson();
+            List<Recipe> recipes = gson.fromJson(data, new TypeToken<List<Recipe>>(){}.getType());
+            mRecipeAdapter = new RecipeAdapter(recipes, this);
+            mRecipesRecyclerView.setAdapter(mRecipeAdapter);
+            mLoadRecipesProgressBar.setVisibility(View.GONE);
+        }
+    }
 
+    @Override
+    public void onListItemClick(int index) {
+        Recipe recipe = mRecipeAdapter.getRecipes().get(index);
+        Intent detailedRecipeIntent = new Intent(getActivity(), DetailedRecipeActivity.class);
+        detailedRecipeIntent.putExtra(RECIPE_KEY, recipe);
+        startActivity(detailedRecipeIntent);
     }
 
     /**
