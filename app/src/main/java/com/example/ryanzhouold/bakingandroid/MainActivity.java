@@ -27,7 +27,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String>, RecipeAdapter.ListItemOnClickHandler {
+public class MainActivity extends AppCompatActivity implements
+        RecipeAdapter.ListItemOnClickHandler, RecipeListFragment.OnFragmentInteractionListener{
     private final static int RECIPES_LOADER_ID = 100;
     private final static String RECIPES_URL = "https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/baking.json";
     public final static String STEP_KEY = "STEP_KEY";
@@ -38,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private ProgressBar mLoadingIndicator;
     private RecipeAdapter mRecipeAdapter;
 
+    private RecipeListFragment mRecipeListFragment;
+    //implements LoaderManager.LoaderCallbacks<String>
+    /*
     @NonNull
     @Override
     public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
@@ -115,17 +119,23 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             mRecipesList.setAdapter(mRecipeAdapter);
         }
     }
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mRecipeListFragment = new RecipeListFragment();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.recipe_list_container, mRecipeListFragment).commit();
+        /*
         mRecipesList = findViewById(R.id.rv_recipes);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecipesList.setLayoutManager(linearLayoutManager);
         mLoadingIndicator = findViewById(R.id.progressBar);
         mLoadingIndicator.setVisibility(View.GONE);
         getSupportLoaderManager().initLoader(RECIPES_LOADER_ID, null, this);
+        */
     }
 
     @Override
@@ -134,5 +144,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         Intent detailedRecipeIntent = new Intent(this, DetailedRecipeActivity.class);
         detailedRecipeIntent.putExtra(RECIPE_KEY, recipe);
         startActivity(detailedRecipeIntent);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
