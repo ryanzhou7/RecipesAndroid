@@ -12,11 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import com.example.ryanzhouold.bakingandroid.model.Recipe;
+import com.example.ryanzhouold.bakingandroid.modelLayer.RecipeDataLoader;
+import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -28,6 +30,7 @@ import java.util.List;
 public class RecipeListFragment extends Fragment implements RecipeListContract.View,
         RecipeAdapter.ListItemOnClickHandler{
 
+    private RecipeListContract.View mViewListener;
     private OnFragmentInteractionListener mListener;
     private ProgressBar mLoadRecipesProgressBar;
     private RecipeAdapter mRecipeAdapter;
@@ -54,8 +57,9 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
         mRecipesRecyclerView = rootView.findViewById(R.id.recycler_recipes);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         mRecipesRecyclerView.setLayoutManager(linearLayoutManager);
-        mRecipeListPresenter = new RecipeListPresenter(this);
-        mRecipeListPresenter.loadRecipes();
+        mRecipeListPresenter = new RecipeListPresenter(this,
+                new RecipeDataLoader(Objects.requireNonNull(getContext())));
+        mRecipeListPresenter.loadRecipes(getLoaderManager());
         return rootView;
     }
 
@@ -116,4 +120,5 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }

@@ -4,12 +4,10 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-
 public class MainActivity extends AppCompatActivity
         implements RecipeListFragment.OnFragmentInteractionListener{
 
     private RecipeListFragment mRecipeListFragment;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +24,7 @@ public class MainActivity extends AppCompatActivity
         getSupportLoaderManager().initLoader(RECIPES_LOADER_ID, null, this);
         */
     }
+
 
     @Override
     public void onFragmentInteraction(Uri uri) {

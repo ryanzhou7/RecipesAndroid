@@ -5,8 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.ryanzhouold.bakingandroid.model.Recipe;
-import com.example.ryanzhouold.bakingandroid.model.Step;
+import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
 
 public class DetailedRecipeActivity extends AppCompatActivity{
     private TextView mTVStep;

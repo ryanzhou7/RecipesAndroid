@@ -1,4 +1,4 @@
-package com.example.ryanzhouold.bakingandroid;
+package com.example.ryanzhouold.bakingandroid.modelLayer;
 
 import android.content.Context;
 import android.net.Uri;
@@ -16,6 +16,11 @@ import okhttp3.Response;
 public class RecipeDataLoader extends AsyncTaskLoader<String> {
 
     private final static String RECIPES_URL = "https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/baking.json";
+
+    public String getmCacheResult() {
+        return mCacheResult;
+    }
+
     private String mCacheResult = null;
 
     public RecipeDataLoader(@NonNull Context context) {

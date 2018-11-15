@@ -1,34 +1,33 @@
 package com.example.ryanzhouold.bakingandroid;
 
-
-import android.content.AsyncTaskLoader;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 
+import com.example.ryanzhouold.bakingandroid.modelLayer.RecipeDataLoader;
+
 public class RecipeListPresenter implements RecipeListContract.Presenter, LoaderManager.LoaderCallbacks<String>{
 
-    private final static int RECIPES_LOADER_ID = 100;
-
     private RecipeListContract.View mViewListener;
-    RecipeListPresenter(@NonNull RecipeListContract.View view){
+    private RecipeDataLoader mRecipeDataLoader;
+
+    RecipeListPresenter(@NonNull RecipeListContract.View view, RecipeDataLoader recipeDataLoader){
         mViewListener = view;
+        mRecipeDataLoader = recipeDataLoader;
     }
 
     //CreateLoader
     @Override
-    public void loadRecipes() {
-        ((Fragment)mViewListener).getLoaderManager().initLoader(RECIPES_LOADER_ID, null, this);
+    public void loadRecipes(LoaderManager loaderManager){
+        loaderManager.initLoader(RECIPES_LOADER_ID, null, this);
     }
 
     @NonNull
     @Override
     public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
-        return new RecipeDataLoader(((Fragment) mViewListener).getContext());
+        return mRecipeDataLoader;
     }
 
     @Override
@@ -42,4 +41,6 @@ public class RecipeListPresenter implements RecipeListContract.Presenter, Loader
     public void onLoaderReset(@NonNull Loader<String> loader) {
 
     }
+
+
 }
