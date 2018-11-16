@@ -35,7 +35,7 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
     private ProgressBar mLoadRecipesProgressBar;
     private RecipeAdapter mRecipeAdapter;
     private RecyclerView mRecipesRecyclerView;
-    private RecipeListPresenter mRecipeListPresenter;
+    private RecipeListContract.Presenter mRecipeListPresenter;
     private final String TAG = getClass().getName();
     public final static String STEP_KEY = "STEP_KEY";
     public final static String RECIPE_KEY = "RECIPE_KEY";
@@ -47,6 +47,10 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
         // Required empty public constructor
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -104,6 +108,11 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
         Intent detailedRecipeIntent = new Intent(getActivity(), DetailedRecipeActivity.class);
         detailedRecipeIntent.putExtra(RECIPE_KEY, recipe);
         startActivity(detailedRecipeIntent);
+    }
+
+    @Override
+    public void setPresenter(RecipeListContract.Presenter presenter) {
+        mRecipeListPresenter = presenter;
     }
 
     /**

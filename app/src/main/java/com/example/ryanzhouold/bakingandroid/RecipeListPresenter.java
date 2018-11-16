@@ -41,6 +41,4 @@ public class RecipeListPresenter implements RecipeListContract.Presenter, Loader
     public void onLoaderReset(@NonNull Loader<String> loader) {
 
     }
-
-
 }
