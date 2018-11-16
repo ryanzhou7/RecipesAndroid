@@ -1,4 +1,4 @@
-package com.example.ryanzhouold.bakingandroid;
+package com.example.ryanzhouold.bakingandroid.RecipeList;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -39,6 +39,11 @@ public class RecipeListPresenter implements RecipeListContract.Presenter, Loader
 
     @Override
     public void onLoaderReset(@NonNull Loader<String> loader) {
+
+    }
+
+    @Override
+    public void start() {
 
     }
 }

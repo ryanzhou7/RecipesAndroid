@@ -1,4 +1,4 @@
-package com.example.ryanzhouold.bakingandroid;
+package com.example.ryanzhouold.bakingandroid.RecipeList;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
 
 import java.util.List;

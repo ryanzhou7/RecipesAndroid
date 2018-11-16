@@ -1,4 +1,4 @@
-package com.example.ryanzhouold.bakingandroid;
+package com.example.ryanzhouold.bakingandroid.RecipeList;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.example.ryanzhouold.bakingandroid.RecipeDetail.RecipeDetailActivity;
+import com.example.ryanzhouold.bakingandroid.R;
+import com.example.ryanzhouold.bakingandroid.RecipeDetail.RecipeStepFragment;
 import com.example.ryanzhouold.bakingandroid.modelLayer.RecipeDataLoader;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
 import com.google.gson.Gson;
@@ -99,15 +102,17 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
             mRecipeAdapter = new RecipeAdapter(recipes, this);
             mRecipesRecyclerView.setAdapter(mRecipeAdapter);
             mLoadRecipesProgressBar.setVisibility(View.GONE);
+            mListener.onRecipesLoaded(recipes.get(0));
         }
     }
 
     @Override
     public void onListItemClick(int index) {
         Recipe recipe = mRecipeAdapter.getRecipes().get(index);
-        Intent detailedRecipeIntent = new Intent(getActivity(), DetailedRecipeActivity.class);
-        detailedRecipeIntent.putExtra(RECIPE_KEY, recipe);
-        startActivity(detailedRecipeIntent);
+        //Intent detailedRecipeIntent = new Intent(getActivity(), RecipeDetailActivity.class);
+        //detailedRecipeIntent.putExtra(RECIPE_KEY, recipe);
+        //startActivity(detailedRecipeIntent);
+        mListener.onRecipeClicked(recipe);
     }
 
     @Override
@@ -128,6 +133,8 @@ public class RecipeListFragment extends Fragment implements RecipeListContract.V
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+        void onRecipesLoaded(Recipe recipe);
+        void onRecipeClicked(Recipe recipe);
     }
 
 }
