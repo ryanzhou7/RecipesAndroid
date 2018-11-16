@@ -1,13 +1,15 @@
-package com.example.ryanzhouold.bakingandroid;
+package com.example.ryanzhouold.bakingandroid.RecipeDetail;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.ryanzhouold.bakingandroid.R;
+import com.example.ryanzhouold.bakingandroid.RecipeList.RecipeListFragment;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
 
-public class DetailedRecipeActivity extends AppCompatActivity{
+public class RecipeDetailActivity extends AppCompatActivity{
     private TextView mTVStep;
     private Recipe mRecipe;
     @Override
