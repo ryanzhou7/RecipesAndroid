@@ -24,7 +24,7 @@ import java.util.Arrays;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class StepFragment extends Fragment {
+public class RecipeFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -39,13 +39,13 @@ public class StepFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public StepFragment() {
+    public RecipeFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static StepFragment newInstance(int columnCount, Recipe recipe) {
-        StepFragment fragment = new StepFragment();
+    public static RecipeFragment newInstance(int columnCount, Recipe recipe) {
+        RecipeFragment fragment = new RecipeFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         args.putParcelable(Keys.RECIPE_KEY, recipe);

@@ -10,11 +10,11 @@ import com.example.ryanzhouold.bakingandroid.constants.Keys;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
 
-public class RecipeDetailActivity extends AppCompatActivity implements StepFragment.OnListFragmentInteractionListener{
+public class RecipeDetailActivity extends AppCompatActivity implements RecipeFragment.OnListFragmentInteractionListener{
     private TextView mTVStep;
     private Recipe mRecipe;
     private boolean mTwoPane;
-    private StepFragment mStepFragment;
+    private RecipeFragment mRecipeFragment;
     private int mNUM_COL = 1;
 
     @Override
@@ -36,9 +36,9 @@ public class RecipeDetailActivity extends AppCompatActivity implements StepFragm
     }
 
     private void addStepFragmentTo(int container){
-        mStepFragment = StepFragment.newInstance(mNUM_COL, mRecipe);
+        mRecipeFragment = RecipeFragment.newInstance(mNUM_COL, mRecipe);
         getSupportFragmentManager().beginTransaction()
-                .add(container, mStepFragment)
+                .add(container, mRecipeFragment)
                 .commit();
     }
 

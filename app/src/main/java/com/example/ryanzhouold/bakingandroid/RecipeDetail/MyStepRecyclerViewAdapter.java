@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.ryanzhouold.bakingandroid.R;
-import com.example.ryanzhouold.bakingandroid.RecipeDetail.StepFragment.OnListFragmentInteractionListener;
+import com.example.ryanzhouold.bakingandroid.RecipeDetail.RecipeFragment.OnListFragmentInteractionListener;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public class MyStepRecyclerViewAdapter extends RecyclerView.Adapter<MyStepRecycl
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_step, parent, false);
+                .inflate(R.layout.step_item, parent, false);
         return new ViewHolder(view);
     }
 
