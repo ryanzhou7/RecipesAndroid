@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.content.AsyncTaskLoader;
 
+import com.example.ryanzhouold.bakingandroid.R;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
