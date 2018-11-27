@@ -3,7 +3,6 @@ package com.example.ryanzhouold.bakingandroid.RecipeList;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,10 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.example.ryanzhouold.bakingandroid.R;
-import com.example.ryanzhouold.bakingandroid.modelLayer.RecipeDataLoader;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
 
@@ -60,8 +56,8 @@ public class RecipeFragment extends Fragment implements RecipeListContract.View{
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-        mPresenter = new RecipeListPresenter(this, new RecipeDataLoader(getContext()));
-        mPresenter.loadRecipes(getLoaderManager());
+        mPresenter = new RecipeListPresenter(this);
+        mPresenter.loadRecipes();
     }
 
     @Override
@@ -98,15 +94,11 @@ public class RecipeFragment extends Fragment implements RecipeListContract.View{
     }
 
     @Override
-    public void showRecipes(String data) {
-        if(data!=null) {
-            Gson gson = new Gson();
-            List<Recipe> recipes = gson.fromJson(data, new TypeToken<List<Recipe>>(){}.getType());
-            MyRecipeRecyclerViewAdapter recipeRecyclerViewAdapter =
-                    new MyRecipeRecyclerViewAdapter(recipes, mListener);
-            mRecyclerView.setAdapter(recipeRecyclerViewAdapter);
-            mProgressBar.setVisibility(View.GONE);
-        }
+    public void showRecipes(List<Recipe> recipes) {
+        MyRecipeRecyclerViewAdapter recipeRecyclerViewAdapter =
+                new MyRecipeRecyclerViewAdapter(recipes, mListener);
+        mRecyclerView.setAdapter(recipeRecyclerViewAdapter);
+        mProgressBar.setVisibility(View.GONE);
     }
 
     @Override

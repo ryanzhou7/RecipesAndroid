@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MyStepRecyclerViewAdapter extends RecyclerView.Adapter<MyStepRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Step> mValues;
+    private List<Step> mValues;
     private final OnListFragmentInteractionListener mListener;
 
     public MyStepRecyclerViewAdapter(List<Step> items, OnListFragmentInteractionListener listener) {
@@ -40,7 +40,7 @@ public class MyStepRecyclerViewAdapter extends RecyclerView.Adapter<MyStepRecycl
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
+                    mListener.onClick(holder.mItem);
                 }
             }
         });
@@ -49,6 +49,14 @@ public class MyStepRecyclerViewAdapter extends RecyclerView.Adapter<MyStepRecycl
     @Override
     public int getItemCount() {
         return mValues.size();
+    }
+
+    public List<Step> getValues() {
+        return mValues;
+    }
+
+    public void setValues(List<Step> mValues) {
+        this.mValues = mValues;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

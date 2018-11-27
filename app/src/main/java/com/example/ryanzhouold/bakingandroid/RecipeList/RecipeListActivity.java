@@ -1,22 +1,22 @@
-package com.example.ryanzhouold.bakingandroid;
+package com.example.ryanzhouold.bakingandroid.RecipeList;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.RecipeDetail.RecipeDetailActivity;
-import com.example.ryanzhouold.bakingandroid.RecipeList.RecipeFragment;
 import com.example.ryanzhouold.bakingandroid.constants.Keys;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
 
-public class MainActivity extends AppCompatActivity implements RecipeFragment.OnListFragmentInteractionListener{
+public class RecipeListActivity extends AppCompatActivity implements RecipeFragment.OnListFragmentInteractionListener{
 
     private RecipeFragment mRecipeListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_recipe_list);
         mRecipeListFragment = RecipeFragment.newInstance(getResources().getInteger(R.integer.numCols));
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.main_container, mRecipeListFragment).commit();

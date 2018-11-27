@@ -1,20 +1,27 @@
 package com.example.ryanzhouold.bakingandroid.RecipeDetail;
 
 import android.content.Intent;
+import android.os.Parcelable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.ryanzhouold.bakingandroid.R;
+import com.example.ryanzhouold.bakingandroid.Step.StepActivity;
+import com.example.ryanzhouold.bakingandroid.Step.StepFragment;
 import com.example.ryanzhouold.bakingandroid.constants.Keys;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
+import java.util.Arrays;
 
-public class RecipeDetailActivity extends AppCompatActivity implements RecipeFragment.OnListFragmentInteractionListener{
+public class RecipeDetailActivity extends AppCompatActivity
+        implements RecipeFragment.OnListFragmentInteractionListener{
     private TextView mTVStep;
     private Recipe mRecipe;
-    private boolean mTwoPane;
+    private boolean mIsTwoPane;
     private RecipeFragment mRecipeFragment;
+    private StepFragment mStepFragment;
     private int mNUM_COL = 1;
 
     @Override
@@ -25,25 +32,35 @@ public class RecipeDetailActivity extends AppCompatActivity implements RecipeFra
         if(intent.hasExtra(Keys.RECIPE_KEY)){
             mRecipe = intent.getParcelableExtra(Keys.RECIPE_KEY);
         }
-        mTwoPane = getResources().getBoolean(R.bool.isTabletOrLarger);
-        if(mTwoPane){
+        mIsTwoPane = getResources().getBoolean(R.bool.isTabletOrLarger);
+        mRecipeFragment = RecipeFragment.newInstance(mNUM_COL, mRecipe);
+        if(mIsTwoPane){
             //left and right
-            addStepFragmentTo(R.id.left_container);
+            addFragmentTo(mRecipeFragment, R.id.left_container);
+            mStepFragment = StepFragment.newInstance(mIsTwoPane, Arrays.asList(mRecipe.getSteps()));
+            addFragmentTo(mStepFragment, R.id.right_container);
         }
         else{
-            addStepFragmentTo(R.id.detailed_main_container);
+            addFragmentTo(mRecipeFragment, R.id.detailed_main_container);
         }
     }
 
-    private void addStepFragmentTo(int container){
-        mRecipeFragment = RecipeFragment.newInstance(mNUM_COL, mRecipe);
+    private void addFragmentTo(Fragment fragment, int container){
         getSupportFragmentManager().beginTransaction()
-                .add(container, mRecipeFragment)
+                .add(container, fragment)
                 .commit();
     }
 
     @Override
-    public void onListFragmentInteraction(Step item) {
-
+    public void onClick(Step item) {
+        if(mIsTwoPane) {
+            mStepFragment.showStep(item);
+        }
+        else{
+            Intent stepIntent = new Intent(getApplicationContext(), StepActivity.class);
+            stepIntent.putExtra(Keys.STEP_KEY, mRecipe.getSteps());
+            startActivity(stepIntent);
+        }
     }
+
 }

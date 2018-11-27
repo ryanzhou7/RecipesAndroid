@@ -17,6 +17,7 @@ import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Ingredient;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -34,6 +35,7 @@ public class RecipeFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private Recipe mRecipe;
     private TextView mTextViewIngredients;
+    private List<Step> mSteps;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -83,7 +85,8 @@ public class RecipeFragment extends Fragment {
         } else {
             mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), mColumnCount));
         }
-        mRecyclerView.setAdapter(new MyStepRecyclerViewAdapter(Arrays.asList(mRecipe.getSteps()), mListener));
+        mSteps = Arrays.asList(mRecipe.getSteps());
+        mRecyclerView.setAdapter(new MyStepRecyclerViewAdapter(mSteps, mListener));
         return view;
     }
 
@@ -105,6 +108,11 @@ public class RecipeFragment extends Fragment {
         mListener = null;
     }
 
+
+    public List<Step> getSteps() {
+        return mSteps;
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -117,6 +125,6 @@ public class RecipeFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(Step item);
+        void onClick(Step item);
     }
 }
