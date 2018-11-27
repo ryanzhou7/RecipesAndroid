@@ -1,7 +1,7 @@
-package com.example.ryanzhouold.bakingandroid.Step;
+package com.example.ryanzhouold.bakingandroid.step;
 
-import com.example.ryanzhouold.bakingandroid.BasePresenter;
-import com.example.ryanzhouold.bakingandroid.BaseView;
+import com.example.ryanzhouold.bakingandroid.baseContract.BasePresenter;
+import com.example.ryanzhouold.bakingandroid.baseContract.BaseView;
 import com.example.ryanzhouold.bakingandroid.data.entity.Step;
 
 public interface StepContract {

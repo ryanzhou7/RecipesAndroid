@@ -1,4 +1,4 @@
-package com.example.ryanzhouold.bakingandroid.RecipeList;
+package com.example.ryanzhouold.bakingandroid.recipeList;
 
 import android.support.annotation.NonNull;
 

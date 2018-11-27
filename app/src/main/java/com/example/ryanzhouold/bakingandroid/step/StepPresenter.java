@@ -1,4 +1,4 @@
-package com.example.ryanzhouold.bakingandroid.Step;
+package com.example.ryanzhouold.bakingandroid.step;
 
 import com.example.ryanzhouold.bakingandroid.data.entity.Step;
 

@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewIngredients"
-        tools:context=".RecipeDetail.RecipeFragment"
+        tools:context=".recipeDetail.RecipeFragment"
         tools:listitem="@layout/step_item" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.ryanzhouold.bakingandroid.RecipeDetail;
+package com.example.ryanzhouold.bakingandroid.recipeDetail;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.ryanzhouold.bakingandroid.R;
-import com.example.ryanzhouold.bakingandroid.Step.StepActivity;
-import com.example.ryanzhouold.bakingandroid.Step.StepFragment;
+import com.example.ryanzhouold.bakingandroid.step.StepActivity;
+import com.example.ryanzhouold.bakingandroid.step.StepFragment;
 import com.example.ryanzhouold.bakingandroid.constants.Keys;
 import com.example.ryanzhouold.bakingandroid.data.entity.Recipe;
 import com.example.ryanzhouold.bakingandroid.data.entity.Step;

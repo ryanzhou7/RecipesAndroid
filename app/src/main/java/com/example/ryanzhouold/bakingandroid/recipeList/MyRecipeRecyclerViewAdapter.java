@@ -1,4 +1,4 @@
-package com.example.ryanzhouold.bakingandroid.RecipeList;
+package com.example.ryanzhouold.bakingandroid.recipeList;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ryanzhouold.bakingandroid.R;
-import com.example.ryanzhouold.bakingandroid.RecipeList.RecipeFragment.OnListFragmentInteractionListener;
+import com.example.ryanzhouold.bakingandroid.recipeList.RecipeFragment.OnListFragmentInteractionListener;
 import com.example.ryanzhouold.bakingandroid.data.entity.Recipe;
 
 import java.util.List;

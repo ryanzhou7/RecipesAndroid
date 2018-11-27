@@ -1,7 +1,7 @@
-package com.example.ryanzhouold.bakingandroid.RecipeList;
+package com.example.ryanzhouold.bakingandroid.recipeList;
 
-import com.example.ryanzhouold.bakingandroid.BasePresenter;
-import com.example.ryanzhouold.bakingandroid.BaseView;
+import com.example.ryanzhouold.bakingandroid.baseContract.BasePresenter;
+import com.example.ryanzhouold.bakingandroid.baseContract.BaseView;
 import com.example.ryanzhouold.bakingandroid.data.entity.Recipe;
 
 import java.util.List;

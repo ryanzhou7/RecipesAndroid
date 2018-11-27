@@ -1,4 +1,4 @@
-package com.example.ryanzhouold.bakingandroid.Step;
+package com.example.ryanzhouold.bakingandroid.step;
 
 import android.os.Bundle;
 import android.os.Parcelable;

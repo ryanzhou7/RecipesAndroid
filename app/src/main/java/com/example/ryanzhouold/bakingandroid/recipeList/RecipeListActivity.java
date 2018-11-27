@@ -1,11 +1,11 @@
-package com.example.ryanzhouold.bakingandroid.RecipeList;
+package com.example.ryanzhouold.bakingandroid.recipeList;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.ryanzhouold.bakingandroid.R;
-import com.example.ryanzhouold.bakingandroid.RecipeDetail.RecipeDetailActivity;
+import com.example.ryanzhouold.bakingandroid.recipeDetail.RecipeDetailActivity;
 import com.example.ryanzhouold.bakingandroid.constants.Keys;
 import com.example.ryanzhouold.bakingandroid.data.entity.Recipe;
 

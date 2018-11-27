@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.ryanzhouold.bakingandroid.Step.StepActivity">
+    tools:context="com.example.ryanzhouold.bakingandroid.step.StepActivity">
 
     <FrameLayout
         android:id="@+id/step_container"
