@@ -3,6 +3,13 @@ package com.example.ryanzhouold.bakingandroid.modelLayer.pojo;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.android.gms.common.util.ArrayUtils;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Recipe implements Parcelable {
     private long id;
     private String name;
@@ -81,6 +88,10 @@ public class Recipe implements Parcelable {
 
     public Step[] getSteps() {
         return steps;
+    }
+
+    public ArrayList<? extends Parcelable> getStepsAsParcelableArrayList() {
+        return (ArrayList<? extends Parcelable>)Arrays.asList(steps);
     }
 
     public void setSteps(Step[] steps) {

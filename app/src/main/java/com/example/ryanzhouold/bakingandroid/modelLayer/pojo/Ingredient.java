@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Ingredient implements Parcelable {
     private double quantity;
-    private String measurement;
+    private String measure;
 
     /* example
     {
@@ -23,7 +23,7 @@ public class Ingredient implements Parcelable {
 
     protected Ingredient(Parcel in) {
         quantity = in.readDouble();
-        measurement = in.readString();
+        measure = in.readString();
         name = in.readString();
     }
 
@@ -39,12 +39,12 @@ public class Ingredient implements Parcelable {
         }
     };
 
-    public String getMeasurement() {
-        return measurement;
+    public String getMeasure() {
+        return measure;
     }
 
-    public void setMeasurement(String measurement) {
-        this.measurement = measurement;
+    public void setMeasure(String measure) {
+        this.measure = measure;
     }
 
     public String getName() {
@@ -71,7 +71,23 @@ public class Ingredient implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeDouble(quantity);
-        parcel.writeString(measurement);
+        parcel.writeString(measure);
         parcel.writeString(name);
     }
+
+    @Override
+    public String toString(){
+        StringBuilder stringBuilder = new StringBuilder();
+        Double d = quantity;
+        if(d.intValue() < d){
+            stringBuilder.append(quantity + " ");
+        }
+        else{
+            stringBuilder.append(d.intValue() + " ");
+        }
+        stringBuilder.append(measure + " ");
+        stringBuilder.append(name);
+        return stringBuilder.toString();
+    }
+
 }

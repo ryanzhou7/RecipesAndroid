@@ -1,16 +1,16 @@
 package com.example.ryanzhouold.bakingandroid.RecipeList;
 
-import android.support.v4.app.LoaderManager;
-
 import com.example.ryanzhouold.bakingandroid.BasePresenter;
 import com.example.ryanzhouold.bakingandroid.BaseView;
+import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
+
+import java.util.List;
 
 public interface RecipeListContract {
     interface View extends BaseView<Presenter> {
-        void showRecipes(String data);
+        void showRecipes(List<Recipe> recipes);
     }
     interface Presenter extends BasePresenter {
-        int RECIPES_LOADER_ID = 100;
-        void loadRecipes(LoaderManager manager);
+        void loadRecipes();
     }
 }

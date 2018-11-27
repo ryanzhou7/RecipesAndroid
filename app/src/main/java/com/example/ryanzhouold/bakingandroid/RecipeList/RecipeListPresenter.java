@@ -1,45 +1,46 @@
 package com.example.ryanzhouold.bakingandroid.RecipeList;
 
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
 
-import com.example.ryanzhouold.bakingandroid.modelLayer.RecipeDataLoader;
+import com.example.ryanzhouold.bakingandroid.modelLayer.RecipeDataClient;
+import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
-public class RecipeListPresenter implements RecipeListContract.Presenter, LoaderManager.LoaderCallbacks<String>{
+import org.json.JSONArray;
+
+import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
+
+public class RecipeListPresenter implements RecipeListContract.Presenter{
 
     private RecipeListContract.View mViewListener;
-    private RecipeDataLoader mRecipeDataLoader;
 
-    RecipeListPresenter(@NonNull RecipeListContract.View view, RecipeDataLoader recipeDataLoader){
+    RecipeListPresenter(@NonNull RecipeListContract.View view){
         mViewListener = view;
-        mRecipeDataLoader = recipeDataLoader;
     }
 
-    //CreateLoader
-    @Override
-    public void loadRecipes(LoaderManager loaderManager){
-        loaderManager.initLoader(RECIPES_LOADER_ID, null, this);
-    }
-
-    @NonNull
-    @Override
-    public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
-        return mRecipeDataLoader;
-    }
 
     @Override
-    public void onLoadFinished(@NonNull Loader<String> loader, String data) {
-        if(loader.getId()==RECIPES_LOADER_ID){
-            mViewListener.showRecipes(data);
+    public void loadRecipes() {
+        RecipeDataClient.getRecipeData(new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray data) {
+                mViewListener.showRecipes(from(data.toString()));
+            }
+        });
+
+    }
+
+    private List<Recipe> from(String data){
+        if(data!=null) {
+            Gson gson = new Gson();
+            List<Recipe> recipes = gson.fromJson(data, new TypeToken<List<Recipe>>(){}.getType());
+            return recipes;
         }
-    }
-
-    @Override
-    public void onLoaderReset(@NonNull Loader<String> loader) {
-
+        return null;
     }
 
     @Override

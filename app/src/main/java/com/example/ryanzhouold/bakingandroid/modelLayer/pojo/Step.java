@@ -87,8 +87,18 @@ public class Step implements Parcelable {
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("id: " + id + " \n");
-        sb.append("description: "+ description + "\n");
+        appendIfNotNull(sb, shortDescription);
+        appendIfNotNull(sb, description);
+        appendIfNotNull(sb, videoURL);
+        appendIfNotNull(sb, thumbnailURL);
         return sb.toString();
+    }
+
+    private StringBuilder appendIfNotNull(StringBuilder sb, String string){
+        if (string!=null && string.length()>0){
+            sb.append(string);
+            sb.append("\n");
+        }
+        return sb;
     }
 }
