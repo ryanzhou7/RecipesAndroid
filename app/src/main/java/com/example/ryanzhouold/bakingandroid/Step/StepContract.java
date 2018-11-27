@@ -2,7 +2,7 @@ package com.example.ryanzhouold.bakingandroid.Step;
 
 import com.example.ryanzhouold.bakingandroid.BasePresenter;
 import com.example.ryanzhouold.bakingandroid.BaseView;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
+import com.example.ryanzhouold.bakingandroid.data.entity.Step;
 
 public interface StepContract {
     interface Presenter extends BasePresenter{

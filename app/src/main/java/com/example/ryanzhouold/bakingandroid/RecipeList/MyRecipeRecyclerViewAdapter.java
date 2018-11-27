@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.RecipeList.RecipeFragment.OnListFragmentInteractionListener;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
+import com.example.ryanzhouold.bakingandroid.data.entity.Recipe;
 
 import java.util.List;
 

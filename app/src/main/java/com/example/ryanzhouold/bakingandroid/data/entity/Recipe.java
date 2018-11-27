@@ -1,14 +1,10 @@
-package com.example.ryanzhouold.bakingandroid.modelLayer.pojo;
+package com.example.ryanzhouold.bakingandroid.data.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.google.android.gms.common.util.ArrayUtils;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Recipe implements Parcelable {
     private long id;

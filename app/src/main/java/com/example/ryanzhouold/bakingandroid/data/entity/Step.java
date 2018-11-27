@@ -1,4 +1,4 @@
-package com.example.ryanzhouold.bakingandroid.modelLayer.pojo;
+package com.example.ryanzhouold.bakingandroid.data.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;

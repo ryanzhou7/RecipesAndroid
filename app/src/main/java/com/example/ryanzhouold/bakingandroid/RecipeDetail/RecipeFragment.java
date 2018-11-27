@@ -13,9 +13,9 @@ import android.widget.TextView;
 
 import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.constants.Keys;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Ingredient;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
+import com.example.ryanzhouold.bakingandroid.data.entity.Ingredient;
+import com.example.ryanzhouold.bakingandroid.data.entity.Recipe;
+import com.example.ryanzhouold.bakingandroid.data.entity.Step;
 import java.util.Arrays;
 import java.util.List;
 

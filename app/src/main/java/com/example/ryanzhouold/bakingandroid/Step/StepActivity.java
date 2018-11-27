@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.constants.Keys;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
+import com.example.ryanzhouold.bakingandroid.data.entity.Step;
 
 import java.util.Arrays;
 

@@ -1,7 +1,6 @@
 package com.example.ryanzhouold.bakingandroid.RecipeDetail;
 
 import android.content.Intent;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,8 +10,8 @@ import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.Step.StepActivity;
 import com.example.ryanzhouold.bakingandroid.Step.StepFragment;
 import com.example.ryanzhouold.bakingandroid.constants.Keys;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
+import com.example.ryanzhouold.bakingandroid.data.entity.Recipe;
+import com.example.ryanzhouold.bakingandroid.data.entity.Step;
 import java.util.Arrays;
 
 public class RecipeDetailActivity extends AppCompatActivity
