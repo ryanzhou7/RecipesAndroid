@@ -9,6 +9,7 @@ import com.example.ryanzhouold.bakingandroid.constants.Keys;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class StepActivity extends AppCompatActivity{
 
@@ -21,8 +22,10 @@ public class StepActivity extends AppCompatActivity{
         findViewById(R.id.step_container);
         Intent intent = getIntent();
         if(intent.hasExtra(Keys.STEPS_KEY)){
-            Step[] steps = (Step[]) intent.getParcelableArrayExtra(Keys.STEPS_KEY);
-            mStepFragment = StepFragment.newInstance(false, Arrays.asList(steps));
+            List<Step> list = intent.getParcelableArrayListExtra(Keys.STEPS_KEY);
+            //Step[] steps = (Step[]) intent.getParcelableArrayExtra(Keys.STEPS_KEY);
+            //Step[] steps = (Step[]) intent.getParcelableArrayExtra(Keys.STEPS_KEY);
+            mStepFragment = StepFragment.newInstance(false, list);
             getSupportFragmentManager().beginTransaction().add(R.id.step_container, mStepFragment)
                     .commit();
         }

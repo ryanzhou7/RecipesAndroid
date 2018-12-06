@@ -20,6 +20,7 @@ public class RecipeListActivity extends AppCompatActivity implements RecipeFragm
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_list);
         mToolbar = findViewById(R.id.activity_recipe_list_toolbar);
+        setSupportActionBar(mToolbar);
         mRecipeListFragment = RecipeFragment.newInstance(getResources().getInteger(R.integer.numCols));
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.main_container, mRecipeListFragment).commit();

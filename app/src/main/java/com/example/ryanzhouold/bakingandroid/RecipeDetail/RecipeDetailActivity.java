@@ -15,7 +15,10 @@ import com.example.ryanzhouold.bakingandroid.Step.StepFragment;
 import com.example.ryanzhouold.bakingandroid.constants.Keys;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
 import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class RecipeDetailActivity extends AppCompatActivity
         implements RecipeFragment.OnListFragmentInteractionListener{
@@ -61,8 +64,11 @@ public class RecipeDetailActivity extends AppCompatActivity
             mStepFragment.showStep(item);
         }
         else{
-            Intent stepIntent = new Intent(getApplicationContext(), StepActivity.class);
-            stepIntent.putExtra(Keys.STEP_KEY, mRecipe.getSteps());
+            Intent stepIntent = new Intent(this, StepActivity.class);
+            Step[] steps = mRecipe.getSteps();
+            ArrayList<Parcelable> list = new ArrayList<>();
+            list.addAll(Arrays.asList(steps));
+            stepIntent.putParcelableArrayListExtra(Keys.STEPS_KEY, list);
             startActivity(stepIntent);
         }
     }
