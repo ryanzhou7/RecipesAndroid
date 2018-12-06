@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/textViewIngredients"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Ingredients"
         app:layout_constraintBottom_toTopOf="@+id/list"
@@ -22,7 +22,7 @@
         android:id="@+id/list"
         android:name="com.example.ryanzhouold.bakingandroid.StepFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
