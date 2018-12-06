@@ -23,14 +23,15 @@ public class RecipeDetailActivity extends AppCompatActivity
     private boolean mIsTwoPane;
     private RecipeFragment mRecipeFragment;
     private StepFragment mStepFragment;
+    private Toolbar mToolbar;
     private int mNUM_COL = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed_recipe);
-        Toolbar myToolbar = findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
+        mToolbar = findViewById(R.id.activity_detailed_toolbar);
+        setSupportActionBar(mToolbar);
         Intent intent = getIntent();
         if(intent.hasExtra(Keys.RECIPE_KEY)){
             mRecipe = intent.getParcelableExtra(Keys.RECIPE_KEY);
