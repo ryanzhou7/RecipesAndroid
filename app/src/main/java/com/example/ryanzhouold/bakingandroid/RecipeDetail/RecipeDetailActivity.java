@@ -6,8 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.Step.StepActivity;
@@ -18,7 +18,6 @@ import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class RecipeDetailActivity extends AppCompatActivity
         implements RecipeFragment.OnListFragmentInteractionListener{
@@ -77,8 +76,6 @@ public class RecipeDetailActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_favorite:
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
                 return true;
 
             default:
@@ -87,6 +84,12 @@ public class RecipeDetailActivity extends AppCompatActivity
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.recipe_detail_activity_menu_actions, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
 }
