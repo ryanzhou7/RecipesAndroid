@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.example.ryanzhouold.bakingandroid.R;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
+import com.example.ryanzhouold.bakingandroid.data.dto.Recipe;
 
 import java.util.List;
 

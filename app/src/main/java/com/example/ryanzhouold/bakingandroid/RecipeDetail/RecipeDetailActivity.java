@@ -13,8 +13,8 @@ import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.Step.StepActivity;
 import com.example.ryanzhouold.bakingandroid.Step.StepFragment;
 import com.example.ryanzhouold.bakingandroid.constants.Keys;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
+import com.example.ryanzhouold.bakingandroid.data.dto.Recipe;
+import com.example.ryanzhouold.bakingandroid.data.dto.Step;
 
 import java.util.ArrayList;
 import java.util.Arrays;

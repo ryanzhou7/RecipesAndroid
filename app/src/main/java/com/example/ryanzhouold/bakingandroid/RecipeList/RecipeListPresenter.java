@@ -2,8 +2,8 @@ package com.example.ryanzhouold.bakingandroid.RecipeList;
 
 import android.support.annotation.NonNull;
 
-import com.example.ryanzhouold.bakingandroid.modelLayer.RecipeDataClient;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
+import com.example.ryanzhouold.bakingandroid.data.network.RecipeDataClient;
+import com.example.ryanzhouold.bakingandroid.data.dto.Recipe;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.JsonHttpResponseHandler;

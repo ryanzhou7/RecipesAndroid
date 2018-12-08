@@ -1,18 +1,17 @@
-package com.example.ryanzhouold.bakingandroid.modelLayer.pojo;
+package com.example.ryanzhouold.bakingandroid.data.dto;
 
+import android.arch.persistence.room.Embedded;
+import android.arch.persistence.room.Entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.google.android.gms.common.util.ArrayUtils;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Recipe implements Parcelable {
     private long id;
     private String name;
+
     private Ingredient[] ingredients;
     private Step[] steps;
     private int servings;

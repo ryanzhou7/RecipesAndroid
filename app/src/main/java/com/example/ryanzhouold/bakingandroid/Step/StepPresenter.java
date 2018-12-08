@@ -1,6 +1,6 @@
 package com.example.ryanzhouold.bakingandroid.Step;
 
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
+import com.example.ryanzhouold.bakingandroid.data.dto.Step;
 
 import java.util.List;
 

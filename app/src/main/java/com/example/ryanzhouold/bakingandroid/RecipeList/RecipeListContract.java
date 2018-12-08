@@ -2,7 +2,7 @@ package com.example.ryanzhouold.bakingandroid.RecipeList;
 
 import com.example.ryanzhouold.bakingandroid.BasePresenter;
 import com.example.ryanzhouold.bakingandroid.BaseView;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
+import com.example.ryanzhouold.bakingandroid.data.dto.Recipe;
 
 import java.util.List;
 

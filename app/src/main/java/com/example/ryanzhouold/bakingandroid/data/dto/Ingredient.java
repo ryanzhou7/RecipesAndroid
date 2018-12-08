@@ -1,5 +1,6 @@
-package com.example.ryanzhouold.bakingandroid.modelLayer.pojo;
+package com.example.ryanzhouold.bakingandroid.data.dto;
 
+import android.arch.persistence.room.Entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -18,8 +19,7 @@ public class Ingredient implements Parcelable {
      */
 
     @SerializedName("ingredient")
-    private
-    String name;
+    private String name;
 
     protected Ingredient(Parcel in) {
         quantity = in.readDouble();

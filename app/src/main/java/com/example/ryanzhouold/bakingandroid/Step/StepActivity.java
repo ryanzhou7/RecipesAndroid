@@ -6,9 +6,8 @@ import android.os.Bundle;
 
 import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.constants.Keys;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Step;
+import com.example.ryanzhouold.bakingandroid.data.dto.Step;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class StepActivity extends AppCompatActivity{

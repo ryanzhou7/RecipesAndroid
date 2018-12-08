@@ -1,4 +1,4 @@
-package com.example.ryanzhouold.bakingandroid.modelLayer;
+package com.example.ryanzhouold.bakingandroid.data.network;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;

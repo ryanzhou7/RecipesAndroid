@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.RecipeDetail.RecipeDetailActivity;
 import com.example.ryanzhouold.bakingandroid.constants.Keys;
-import com.example.ryanzhouold.bakingandroid.modelLayer.pojo.Recipe;
+import com.example.ryanzhouold.bakingandroid.data.dto.Recipe;
 
 public class RecipeListActivity extends AppCompatActivity implements RecipeFragment.OnListFragmentInteractionListener{
 

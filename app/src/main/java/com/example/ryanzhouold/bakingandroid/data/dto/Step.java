@@ -1,9 +1,14 @@
-package com.example.ryanzhouold.bakingandroid.modelLayer.pojo;
+package com.example.ryanzhouold.bakingandroid.data.dto;
 
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Step implements Parcelable {
+    
     private int id;
     private String shortDescription;
     private String description;
