@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    tools:context=".RecipeList.RecipeListActivity">
+    tools:context=".view.recipeList.RecipeListActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/activity_recipe_list_toolbar"
@@ -28,6 +28,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_recipe_list_toolbar"
-        tools:context=".RecipeList.RecipeListActivity" />
+        tools:context=".view.recipeList.RecipeListActivity" />
 
 </android.support.constraint.ConstraintLayout>
