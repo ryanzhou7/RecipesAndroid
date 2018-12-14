@@ -13,6 +13,8 @@ import android.widget.ProgressBar;
 
 import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.model.dto.Recipe;
+import com.example.ryanzhouold.bakingandroid.model.remote.RecipeWebservice;
+import com.example.ryanzhouold.bakingandroid.model.repository.RecipeRepository;
 
 import java.util.List;
 
@@ -56,7 +58,7 @@ public class RecipeFragment extends Fragment implements RecipeListContract.View{
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-        mPresenter = new RecipeListPresenter(this);
+        mPresenter = new RecipeListPresenter(this, new RecipeRepository(new RecipeWebservice()));
         mPresenter.loadRecipes();
     }
 

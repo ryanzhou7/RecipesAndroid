@@ -13,6 +13,8 @@ import org.json.JSONArray;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import cz.msebera.android.httpclient.Header;
 
 public class RecipeListPresenter implements RecipeListContract.Presenter{
@@ -20,9 +22,10 @@ public class RecipeListPresenter implements RecipeListContract.Presenter{
     private RecipeListContract.View mViewListener;
     private RecipeRepository mRecipeRepository;
 
-    RecipeListPresenter(@NonNull RecipeListContract.View view){
+    //@Inject
+    RecipeListPresenter(@NonNull RecipeListContract.View view, RecipeRepository recipeRepository){
         mViewListener = view;
-        mRecipeRepository = new RecipeRepository();
+        mRecipeRepository = recipeRepository;
     }
 
     @Override

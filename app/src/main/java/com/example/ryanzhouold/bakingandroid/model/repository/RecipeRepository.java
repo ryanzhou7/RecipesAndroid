@@ -3,18 +3,22 @@ package com.example.ryanzhouold.bakingandroid.model.repository;
 import com.example.ryanzhouold.bakingandroid.model.remote.RecipeWebservice;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
-public class RecipeRepository implements RecipeDataSource {
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
-    private RecipeWebservice mRecipeWebservice;
+//@Singleton
+public class RecipeRepository implements RecipeDataSource{
 
-    public RecipeRepository(){
-        this.mRecipeWebservice = new RecipeWebservice();
+    private RecipeDataSource mRecipeDataSource;
+
+    //@Inject
+    public RecipeRepository(RecipeDataSource recipeDataSource){
+        this.mRecipeDataSource = recipeDataSource;
     }
 
     @Override
     public void getRecipeData(AsyncHttpResponseHandler responseHandler) {
-        //Decide to get recipe data from network or local
-        mRecipeWebservice.getRecipeData(responseHandler);
+        mRecipeDataSource.getRecipeData(responseHandler);
     }
 
     //private final webservice
