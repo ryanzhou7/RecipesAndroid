@@ -6,9 +6,9 @@ import android.arch.persistence.room.RoomDatabase;
 import com.example.ryanzhouold.bakingandroid.model.dao.IngredientDao;
 import com.example.ryanzhouold.bakingandroid.model.dao.RecipeDao;
 import com.example.ryanzhouold.bakingandroid.model.dao.StepDao;
-import com.example.ryanzhouold.bakingandroid.model.entity.Ingredient;
-import com.example.ryanzhouold.bakingandroid.model.entity.Recipe;
-import com.example.ryanzhouold.bakingandroid.model.entity.Step;
+import com.example.ryanzhouold.bakingandroid.model.pojo.Ingredient;
+import com.example.ryanzhouold.bakingandroid.model.pojo.Recipe;
+import com.example.ryanzhouold.bakingandroid.model.pojo.Step;
 
 @Database(entities = {Recipe.class, Step.class, Ingredient.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {

@@ -1,4 +1,4 @@
-package com.example.ryanzhouold.bakingandroid.presenter;
+package com.example.ryanzhouold.bakingandroid;
 
 public interface BaseView<T>{
     void setPresenter(T presenter);

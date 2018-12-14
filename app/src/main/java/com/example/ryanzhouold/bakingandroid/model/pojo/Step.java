@@ -1,4 +1,4 @@
-package com.example.ryanzhouold.bakingandroid.model.entity;
+package com.example.ryanzhouold.bakingandroid.model.pojo;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;

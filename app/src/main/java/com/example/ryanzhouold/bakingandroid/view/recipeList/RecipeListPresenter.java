@@ -2,8 +2,9 @@ package com.example.ryanzhouold.bakingandroid.view.recipeList;
 
 import android.support.annotation.NonNull;
 
-import com.example.ryanzhouold.bakingandroid.model.network.RecipeDataClient;
+import com.example.ryanzhouold.bakingandroid.model.remote.RecipeWebservice;
 import com.example.ryanzhouold.bakingandroid.model.dto.Recipe;
+import com.example.ryanzhouold.bakingandroid.model.repository.RecipeRepository;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -17,18 +18,22 @@ import cz.msebera.android.httpclient.Header;
 public class RecipeListPresenter implements RecipeListContract.Presenter{
 
     private RecipeListContract.View mViewListener;
+    private RecipeRepository mRecipeRepository;
 
     RecipeListPresenter(@NonNull RecipeListContract.View view){
         mViewListener = view;
+        mRecipeRepository = new RecipeRepository();
     }
-
 
     @Override
     public void loadRecipes() {
-        RecipeDataClient.getRecipeData(new JsonHttpResponseHandler(){
+        mRecipeRepository.getRecipeData(new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray data) {
-                mViewListener.showRecipes(from(data.toString()));
+                if(mViewListener!=null){
+                    mViewListener.showRecipes(from(data.toString()));
+                }
+                //TODO cache data
             }
         });
 

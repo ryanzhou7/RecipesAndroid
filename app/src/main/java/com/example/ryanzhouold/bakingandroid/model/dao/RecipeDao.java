@@ -4,7 +4,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Update;
 
-import com.example.ryanzhouold.bakingandroid.model.entity.Recipe;
+import com.example.ryanzhouold.bakingandroid.model.pojo.Recipe;
 
 @Dao
 public interface RecipeDao {
