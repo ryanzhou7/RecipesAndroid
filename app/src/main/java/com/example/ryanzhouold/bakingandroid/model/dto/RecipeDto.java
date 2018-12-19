@@ -6,20 +6,20 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Recipe implements Parcelable {
+public class RecipeDto implements Parcelable {
     private long id;
     private String name;
 
-    private Ingredient[] ingredients;
-    private Step[] steps;
+    private IngredientDto[] ingredientDtos;
+    private StepDto[] stepDtos;
     private int servings;
     private String image;
 
-    protected Recipe(Parcel in) {
+    protected RecipeDto(Parcel in) {
         id = in.readLong();
         name = in.readString();
-        ingredients = in.createTypedArray(Ingredient.CREATOR);
-        steps = in.createTypedArray(Step.CREATOR);
+        ingredientDtos = in.createTypedArray(IngredientDto.CREATOR);
+        stepDtos = in.createTypedArray(StepDto.CREATOR);
         servings = in.readInt();
         image = in.readString();
     }
@@ -36,8 +36,8 @@ public class Recipe implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeLong(id);
         dest.writeString(name);
-        dest.writeTypedArray(ingredients, flags);
-        dest.writeTypedArray(steps, flags);
+        dest.writeTypedArray(ingredientDtos, flags);
+        dest.writeTypedArray(stepDtos, flags);
         dest.writeInt(servings);
         dest.writeString(image);
     }
@@ -47,15 +47,15 @@ public class Recipe implements Parcelable {
         return 0;
     }
 
-    public static final Creator<Recipe> CREATOR = new Creator<Recipe>() {
+    public static final Creator<RecipeDto> CREATOR = new Creator<RecipeDto>() {
         @Override
-        public Recipe createFromParcel(Parcel in) {
-            return new Recipe(in);
+        public RecipeDto createFromParcel(Parcel in) {
+            return new RecipeDto(in);
         }
 
         @Override
-        public Recipe[] newArray(int size) {
-            return new Recipe[size];
+        public RecipeDto[] newArray(int size) {
+            return new RecipeDto[size];
         }
     };
 
@@ -75,24 +75,24 @@ public class Recipe implements Parcelable {
         this.name = name;
     }
 
-    public Ingredient[] getIngredients() {
-        return ingredients;
+    public IngredientDto[] getIngredientDtos() {
+        return ingredientDtos;
     }
 
-    public void setIngredients(Ingredient[] ingredients) {
-        this.ingredients = ingredients;
+    public void setIngredientDtos(IngredientDto[] ingredientDtos) {
+        this.ingredientDtos = ingredientDtos;
     }
 
-    public Step[] getSteps() {
-        return steps;
+    public StepDto[] getStepDtos() {
+        return stepDtos;
     }
 
     public ArrayList<? extends Parcelable> getStepsAsParcelableArrayList() {
-        return (ArrayList<? extends Parcelable>)Arrays.asList(steps);
+        return (ArrayList<? extends Parcelable>)Arrays.asList(stepDtos);
     }
 
-    public void setSteps(Step[] steps) {
-        this.steps = steps;
+    public void setStepDtos(StepDto[] stepDtos) {
+        this.stepDtos = stepDtos;
     }
 
     public int getServings() {
