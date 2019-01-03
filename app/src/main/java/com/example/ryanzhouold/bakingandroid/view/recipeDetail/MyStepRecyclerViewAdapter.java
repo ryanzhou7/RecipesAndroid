@@ -6,16 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.ryanzhouold.bakingandroid.R;
-import com.example.ryanzhouold.bakingandroid.model.dto.Step;
+import com.example.ryanzhouold.bakingandroid.model.dto.StepDto;
 
 import java.util.List;
 
 public class MyStepRecyclerViewAdapter extends RecyclerView.Adapter<MyStepRecyclerViewAdapter.ViewHolder> {
 
-    private List<Step> mValues;
+    private List<StepDto> mValues;
     private final RecipeFragment.OnListFragmentInteractionListener mListener;
 
-    public MyStepRecyclerViewAdapter(List<Step> items, RecipeFragment.OnListFragmentInteractionListener listener) {
+    public MyStepRecyclerViewAdapter(List<StepDto> items, RecipeFragment.OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -49,11 +49,11 @@ public class MyStepRecyclerViewAdapter extends RecyclerView.Adapter<MyStepRecycl
         return mValues.size();
     }
 
-    public List<Step> getValues() {
+    public List<StepDto> getValues() {
         return mValues;
     }
 
-    public void setValues(List<Step> mValues) {
+    public void setValues(List<StepDto> mValues) {
         this.mValues = mValues;
     }
 
@@ -61,7 +61,7 @@ public class MyStepRecyclerViewAdapter extends RecyclerView.Adapter<MyStepRecycl
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public Step mItem;
+        public StepDto mItem;
 
         public ViewHolder(View view) {
             super(view);

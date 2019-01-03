@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.example.ryanzhouold.bakingandroid.R;
-import com.example.ryanzhouold.bakingandroid.model.dto.Recipe;
+import com.example.ryanzhouold.bakingandroid.model.dto.RecipeDto;
 import com.example.ryanzhouold.bakingandroid.model.remote.RecipeWebservice;
 import com.example.ryanzhouold.bakingandroid.model.repository.RecipeRepository;
 
@@ -34,6 +34,7 @@ public class RecipeFragment extends Fragment implements RecipeListContract.View{
     private OnListFragmentInteractionListener mListener;
     private ProgressBar mProgressBar;
     private RecipeListContract.Presenter mPresenter;
+    private List<RecipeDto> mRecipesCache;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -90,18 +91,26 @@ public class RecipeFragment extends Fragment implements RecipeListContract.View{
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState){
+        mPresenter.saveRecipes(mRecipesCache);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
 
     @Override
-    public void showRecipes(List<Recipe> recipes) {
+    public void showRecipes(List<RecipeDto> recipeDtos) {
         MyRecipeRecyclerViewAdapter recipeRecyclerViewAdapter =
-                new MyRecipeRecyclerViewAdapter(recipes, mListener);
+                new MyRecipeRecyclerViewAdapter(recipeDtos, mListener);
         mRecyclerView.setAdapter(recipeRecyclerViewAdapter);
         mProgressBar.setVisibility(View.GONE);
+        mRecipesCache = recipeDtos;
     }
+
 
     @Override
     public void setPresenter(RecipeListContract.Presenter presenter) {
@@ -120,6 +129,6 @@ public class RecipeFragment extends Fragment implements RecipeListContract.View{
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(Recipe item);
+        void onListFragmentInteraction(RecipeDto item);
     }
 }

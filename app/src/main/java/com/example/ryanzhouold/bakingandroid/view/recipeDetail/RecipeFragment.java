@@ -13,9 +13,9 @@ import android.widget.TextView;
 
 import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.model.constants.Keys;
-import com.example.ryanzhouold.bakingandroid.model.dto.Ingredient;
-import com.example.ryanzhouold.bakingandroid.model.dto.Recipe;
-import com.example.ryanzhouold.bakingandroid.model.dto.Step;
+import com.example.ryanzhouold.bakingandroid.model.dto.IngredientDto;
+import com.example.ryanzhouold.bakingandroid.model.dto.RecipeDto;
+import com.example.ryanzhouold.bakingandroid.model.dto.StepDto;
 import java.util.Arrays;
 import java.util.List;
 
@@ -33,9 +33,9 @@ public class RecipeFragment extends Fragment {
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
     private RecyclerView mRecyclerView;
-    private Recipe mRecipe;
+    private RecipeDto mRecipeDto;
     private TextView mTextViewIngredients;
-    private List<Step> mSteps;
+    private List<StepDto> mStepDtos;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -46,11 +46,11 @@ public class RecipeFragment extends Fragment {
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static RecipeFragment newInstance(int columnCount, Recipe recipe) {
+    public static RecipeFragment newInstance(int columnCount, RecipeDto recipeDto) {
         RecipeFragment fragment = new RecipeFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
-        args.putParcelable(Keys.RECIPE_KEY, recipe);
+        args.putParcelable(Keys.RECIPE_KEY, recipeDto);
         fragment.setArguments(args);
         return fragment;
     }
@@ -60,15 +60,15 @@ public class RecipeFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
-            mRecipe = getArguments().getParcelable(Keys.RECIPE_KEY);
+            mRecipeDto = getArguments().getParcelable(Keys.RECIPE_KEY);
         }
 
     }
 
-    void setIngredientsOn(Ingredient[] ingredients, TextView textView) {
+    void setIngredientsOn(IngredientDto[] ingredientDtos, TextView textView) {
         StringBuilder allIngredients = new StringBuilder();
-        for(Ingredient ingredient: ingredients){
-            allIngredients.append(ingredient.toString() + '\n');
+        for(IngredientDto ingredientDto : ingredientDtos){
+            allIngredients.append(ingredientDto.toString() + '\n');
         }
         textView.setText(allIngredients.toString());
     }
@@ -79,14 +79,14 @@ public class RecipeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_step_list, container, false);
         mRecyclerView = view.findViewById(R.id.list);
         mTextViewIngredients = view.findViewById(R.id.textViewIngredients);
-        setIngredientsOn(mRecipe.getIngredients(), mTextViewIngredients);
+        setIngredientsOn(mRecipeDto.getIngredientDtos(), mTextViewIngredients);
         if (mColumnCount <= 1) {
             mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         } else {
             mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), mColumnCount));
         }
-        mSteps = Arrays.asList(mRecipe.getSteps());
-        mRecyclerView.setAdapter(new MyStepRecyclerViewAdapter(mSteps, mListener));
+        mStepDtos = Arrays.asList(mRecipeDto.getStepDtos());
+        mRecyclerView.setAdapter(new MyStepRecyclerViewAdapter(mStepDtos, mListener));
         return view;
     }
 
@@ -109,8 +109,8 @@ public class RecipeFragment extends Fragment {
     }
 
 
-    public List<Step> getSteps() {
-        return mSteps;
+    public List<StepDto> getSteps() {
+        return mStepDtos;
     }
 
     /**
@@ -125,6 +125,6 @@ public class RecipeFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onClick(Step item);
+        void onClick(StepDto item);
     }
 }

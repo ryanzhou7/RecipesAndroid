@@ -2,12 +2,25 @@ package com.example.ryanzhouold.bakingandroid.model.pojo;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
 @Entity
 public class Recipe{
     @PrimaryKey
+    @NonNull
     private long id;
-
     private String name;
+    //private IngredientDto ingredients;
+    //private StepDto steps;
+    private int servings;
+    private String image;
+
+    public Recipe(long id, String name, int servings, String image) {
+        this.id = id;
+        this.name = name;
+        this.servings = servings;
+        this.image = image;
+    }
 
     public void setId(long id) {
         this.id = id;
@@ -41,8 +54,5 @@ public class Recipe{
         return image;
     }
 
-    //private Ingredient ingredients;
-    //private Step steps;
-    private int servings;
-    private String image;
+
 }

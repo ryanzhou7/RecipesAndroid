@@ -1,17 +1,17 @@
 package com.example.ryanzhouold.bakingandroid.view.step;
 
-import com.example.ryanzhouold.bakingandroid.model.dto.Step;
+import com.example.ryanzhouold.bakingandroid.model.dto.StepDto;
 
 import java.util.List;
 
 public class StepPresenter implements StepContract.Presenter{
 
     private StepContract.View mView;
-    private List<Step> mSteps;
+    private List<StepDto> mStepDtos;
 
-    public StepPresenter(StepContract.View view, List<Step> steps){
+    public StepPresenter(StepContract.View view, List<StepDto> stepDtos){
         mView = view;
-        mSteps = steps;
+        mStepDtos = stepDtos;
     }
 
     @Override
@@ -25,17 +25,17 @@ public class StepPresenter implements StepContract.Presenter{
             mView.showMessage("You are at the first step");
         }
         else{
-            mView.showStep(mSteps.get(pos-1));
+            mView.showStep(mStepDtos.get(pos-1));
         }
     }
 
     @Override
     public void nextStepFrom(int pos) {
-        if(pos>=mSteps.size()){
+        if(pos>= mStepDtos.size()){
             mView.showMessage("You are at the last step");
         }
         else{
-            mView.showStep(mSteps.get(pos+1));
+            mView.showStep(mStepDtos.get(pos+1));
         }
     }
 

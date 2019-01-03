@@ -34,7 +34,7 @@ public class Ingredient{
     public String getMeasure() {
         return measure;
     }
-/* example
+    /* example
     {
         "quantity": 2,
         "measure": "CUP",

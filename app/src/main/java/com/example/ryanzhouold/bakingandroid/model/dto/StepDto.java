@@ -3,7 +3,7 @@ package com.example.ryanzhouold.bakingandroid.model.dto;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Step implements Parcelable {
+public class StepDto implements Parcelable {
     
     private int id;
     private String shortDescription;
@@ -11,7 +11,7 @@ public class Step implements Parcelable {
     private String videoURL;
     private String thumbnailURL;
 
-    protected Step(Parcel in) {
+    protected StepDto(Parcel in) {
         id = in.readInt();
         shortDescription = in.readString();
         description = in.readString();
@@ -19,15 +19,15 @@ public class Step implements Parcelable {
         thumbnailURL = in.readString();
     }
 
-    public static final Creator<Step> CREATOR = new Creator<Step>() {
+    public static final Creator<StepDto> CREATOR = new Creator<StepDto>() {
         @Override
-        public Step createFromParcel(Parcel in) {
-            return new Step(in);
+        public StepDto createFromParcel(Parcel in) {
+            return new StepDto(in);
         }
 
         @Override
-        public Step[] newArray(int size) {
-            return new Step[size];
+        public StepDto[] newArray(int size) {
+            return new StepDto[size];
         }
     };
 

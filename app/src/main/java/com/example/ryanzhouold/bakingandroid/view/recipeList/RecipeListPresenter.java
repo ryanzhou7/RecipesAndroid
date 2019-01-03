@@ -2,25 +2,20 @@ package com.example.ryanzhouold.bakingandroid.view.recipeList;
 
 import android.support.annotation.NonNull;
 
-import com.example.ryanzhouold.bakingandroid.model.remote.RecipeWebservice;
-import com.example.ryanzhouold.bakingandroid.model.dto.Recipe;
+import com.example.ryanzhouold.bakingandroid.model.dto.RecipeDto;
 import com.example.ryanzhouold.bakingandroid.model.repository.RecipeRepository;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import cz.msebera.android.httpclient.Header;
 
 public class RecipeListPresenter implements RecipeListContract.Presenter{
 
     private RecipeListContract.View mViewListener;
-    private RecipeRepository mRecipeRepository;
+    private final RecipeRepository mRecipeRepository;
 
     //@Inject
     RecipeListPresenter(@NonNull RecipeListContract.View view, RecipeRepository recipeRepository){
@@ -34,7 +29,8 @@ public class RecipeListPresenter implements RecipeListContract.Presenter{
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray data) {
                 if(mViewListener!=null){
-                    mViewListener.showRecipes(from(data.toString()));
+                    List<RecipeDto> recipes = mRecipeRepository.convertToDtoFrom(data.toString());
+                    //mViewListener.showRecipes();
                 }
                 //TODO cache data
             }
@@ -42,13 +38,11 @@ public class RecipeListPresenter implements RecipeListContract.Presenter{
 
     }
 
-    private List<Recipe> from(String data){
-        if(data!=null) {
-            Gson gson = new Gson();
-            List<Recipe> recipes = gson.fromJson(data, new TypeToken<List<Recipe>>(){}.getType());
-            return recipes;
+    @Override
+    public void saveRecipes(List<RecipeDto> recipeDtos) {
+        if(recipeDtos !=null){
+            //mRecipeRepository
         }
-        return null;
     }
 
     @Override

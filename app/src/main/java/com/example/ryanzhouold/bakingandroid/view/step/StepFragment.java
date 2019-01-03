@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.model.constants.Keys;
-import com.example.ryanzhouold.bakingandroid.model.dto.Step;
+import com.example.ryanzhouold.bakingandroid.model.dto.StepDto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,18 +24,18 @@ public class StepFragment extends Fragment implements StepContract.View{
     private Button mPrevStep;
     private TextView mTextViewStep;
     private boolean mIsTwoPane = false;
-    private List<Step> mSteps;
+    private List<StepDto> mStepDtos;
 
 
     public StepFragment() {
         // Required empty public constructor
     }
 
-    public static StepFragment newInstance(boolean isTwoPane, List<Step> steps){
+    public static StepFragment newInstance(boolean isTwoPane, List<StepDto> stepDtos){
         StepFragment fragment = new StepFragment();
         Bundle bundle = new Bundle();
         bundle.putBoolean(Keys.IS_TWO_PANE_KEY, isTwoPane);
-        bundle.putParcelableArrayList(Keys.STEPS_KEY, (ArrayList<? extends Parcelable>) steps);
+        bundle.putParcelableArrayList(Keys.STEPS_KEY, (ArrayList<? extends Parcelable>) stepDtos);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -45,7 +45,7 @@ public class StepFragment extends Fragment implements StepContract.View{
         super.onCreate(savedInstanceState);
         if(getArguments()!=null){
             mIsTwoPane = getArguments().getBoolean(Keys.IS_TWO_PANE_KEY);
-            mSteps = getArguments().getParcelableArrayList(Keys.STEPS_KEY);
+            mStepDtos = getArguments().getParcelableArrayList(Keys.STEPS_KEY);
         }
     }
 
@@ -57,8 +57,8 @@ public class StepFragment extends Fragment implements StepContract.View{
         mPrevStep = view.findViewById(R.id.button_previous);
         mNextStep = view.findViewById(R.id.button_next);
         mTextViewStep = view.findViewById(R.id.textViewStep);
-        mStepPresenter = new StepPresenter(this, mSteps);
-        showStep(mSteps.get(0));
+        mStepPresenter = new StepPresenter(this, mStepDtos);
+        showStep(mStepDtos.get(0));
         mPrevStep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,8 +79,8 @@ public class StepFragment extends Fragment implements StepContract.View{
     }
 
     @Override
-    public void showStep(Step step) {
-        mTextViewStep.setText(step.toString());
+    public void showStep(StepDto stepDto) {
+        mTextViewStep.setText(stepDto.toString());
     }
 
     @Override

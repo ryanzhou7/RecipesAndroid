@@ -8,54 +8,54 @@
   {
     "id": 1,
     "name": "Nutella Pie",
-    "ingredients": [
+    "ingredientDtos": [
       {
         "quantity": 2,
         "measure": "CUP",
-        "ingredient": "Graham Cracker crumbs"
+        "ingredientDto": "Graham Cracker crumbs"
       },
       {
         "quantity": 6,
         "measure": "TBLSP",
-        "ingredient": "unsalted butter, melted"
+        "ingredientDto": "unsalted butter, melted"
       },
       {
         "quantity": 0.5,
         "measure": "CUP",
-        "ingredient": "granulated sugar"
+        "ingredientDto": "granulated sugar"
       },
       {
         "quantity": 1.5,
         "measure": "TSP",
-        "ingredient": "salt"
+        "ingredientDto": "salt"
       },
       {
         "quantity": 5,
         "measure": "TBLSP",
-        "ingredient": "vanilla"
+        "ingredientDto": "vanilla"
       },
       {
         "quantity": 1,
         "measure": "K",
-        "ingredient": "Nutella or other chocolate-hazelnut spread"
+        "ingredientDto": "Nutella or other chocolate-hazelnut spread"
       },
       {
         "quantity": 500,
         "measure": "G",
-        "ingredient": "Mascapone Cheese(room temperature)"
+        "ingredientDto": "Mascapone Cheese(room temperature)"
       },
       {
         "quantity": 1,
         "measure": "CUP",
-        "ingredient": "heavy cream(cold)"
+        "ingredientDto": "heavy cream(cold)"
       },
       {
         "quantity": 4,
         "measure": "OZ",
-        "ingredient": "cream cheese(softened)"
+        "ingredientDto": "cream cheese(softened)"
       }
     ],
-    "steps": [
+    "stepDtos": [
       {
         "id": 0,
         "shortDescription": "Recipe Introduction",
@@ -73,7 +73,7 @@
       {
         "id": 2,
         "shortDescription": "Prep the cookie crust.",
-        "description": "2. Whisk the graham cracker crumbs, 50 grams (1/4 cup) of sugar, and 1/2 teaspoon of salt together in a medium bowl. Pour the melted butter and 1 teaspoon of vanilla into the dry ingredients and stir together until evenly mixed.",
+        "description": "2. Whisk the graham cracker crumbs, 50 grams (1/4 cup) of sugar, and 1/2 teaspoon of salt together in a medium bowl. Pour the melted butter and 1 teaspoon of vanilla into the dry ingredientDtos and stir together until evenly mixed.",
         "videoURL": "https://d17h27t6h515a5.cloudfront.net/topher/2017/April/58ffd9a6_2-mix-sugar-crackers-creampie/2-mix-sugar-crackers-creampie.mp4",
         "thumbnailURL": ""
       },
@@ -112,59 +112,59 @@
   {
     "id": 2,
     "name": "Brownies",
-    "ingredients": [
+    "ingredientDtos": [
       {
         "quantity": 350,
         "measure": "G",
-        "ingredient": "Bittersweet chocolate (60-70% cacao)"
+        "ingredientDto": "Bittersweet chocolate (60-70% cacao)"
       },
       {
         "quantity": 226,
         "measure": "G",
-        "ingredient": "unsalted butter"
+        "ingredientDto": "unsalted butter"
       },
       {
         "quantity": 300,
         "measure": "G",
-        "ingredient": "granulated sugar"
+        "ingredientDto": "granulated sugar"
       },
       {
         "quantity": 100,
         "measure": "G",
-        "ingredient": "light brown sugar"
+        "ingredientDto": "light brown sugar"
       },
       {
         "quantity": 5,
         "measure": "UNIT",
-        "ingredient": "large eggs"
+        "ingredientDto": "large eggs"
       },
       {
         "quantity": 1,
         "measure": "TBLSP",
-        "ingredient": "vanilla extract"
+        "ingredientDto": "vanilla extract"
       },
       {
         "quantity": 140,
         "measure": "G",
-        "ingredient": "all purpose flour"
+        "ingredientDto": "all purpose flour"
       },
       {
         "quantity": 40,
         "measure": "G",
-        "ingredient": "cocoa powder"
+        "ingredientDto": "cocoa powder"
       },
       {
         "quantity": 1.5,
         "measure": "TSP",
-        "ingredient": "salt"
+        "ingredientDto": "salt"
       },
       {
         "quantity": 350,
         "measure": "G",
-        "ingredient": "semisweet chocolate chips"
+        "ingredientDto": "semisweet chocolate chips"
       }
     ],
-    "steps": [
+    "stepDtos": [
       {
         "id": 0,
         "shortDescription": "Recipe Introduction",
@@ -182,7 +182,7 @@
       {
         "id": 2,
         "shortDescription": "Melt butter and bittersweet chocolate.",
-        "description": "2. Melt the butter and bittersweet chocolate together in a microwave or a double boiler. If microwaving, heat for 30 seconds at a time, removing bowl and stirring ingredients in between.",
+        "description": "2. Melt the butter and bittersweet chocolate together in a microwave or a double boiler. If microwaving, heat for 30 seconds at a time, removing bowl and stirring ingredientDtos in between.",
         "videoURL": "https://d17h27t6h515a5.cloudfront.net/topher/2017/April/58ffdc43_1-melt-choclate-chips-and-butter-brownies/1-melt-choclate-chips-and-butter-brownies.mp4",
         "thumbnailURL": ""
       },
@@ -195,7 +195,7 @@
       },
       {
         "id": 4,
-        "shortDescription": "Mix together dry ingredients.",
+        "shortDescription": "Mix together dry ingredientDtos.",
         "description": "4. Sift together the flour, cocoa, and salt in a small bowl and whisk until mixture is uniform and no clumps remain. ",
         "videoURL": "https://d17h27t6h515a5.cloudfront.net/topher/2017/April/58ffdc9e_4-sift-flower-add-coco-powder-salt-brownies/4-sift-flower-add-coco-powder-salt-brownies.mp4",
         "thumbnailURL": ""
@@ -242,59 +242,59 @@
   {
     "id": 3,
     "name": "Yellow Cake",
-    "ingredients": [
+    "ingredientDtos": [
       {
         "quantity": 400,
         "measure": "G",
-        "ingredient": "sifted cake flour"
+        "ingredientDto": "sifted cake flour"
       },
       {
         "quantity": 700,
         "measure": "G",
-        "ingredient": "granulated sugar"
+        "ingredientDto": "granulated sugar"
       },
       {
         "quantity": 4,
         "measure": "TSP",
-        "ingredient": "baking powder"
+        "ingredientDto": "baking powder"
       },
       {
         "quantity": 1.5,
         "measure": "TSP",
-        "ingredient": "salt"
+        "ingredientDto": "salt"
       },
       {
         "quantity": 2,
         "measure": "TBLSP",
-        "ingredient": "vanilla extract, divided"
+        "ingredientDto": "vanilla extract, divided"
       },
       {
         "quantity": 8,
         "measure": "UNIT",
-        "ingredient": "egg yolks"
+        "ingredientDto": "egg yolks"
       },
       {
         "quantity": 323,
         "measure": "G",
-        "ingredient": "whole milk"
+        "ingredientDto": "whole milk"
       },
       {
         "quantity": 961,
         "measure": "G",
-        "ingredient": "unsalted butter, softened and cut into 1 in. cubes"
+        "ingredientDto": "unsalted butter, softened and cut into 1 in. cubes"
       },
       {
         "quantity": 6,
         "measure": "UNIT",
-        "ingredient": "egg whites"
+        "ingredientDto": "egg whites"
       },
       {
         "quantity": 283,
         "measure": "G",
-        "ingredient": "melted and cooled bittersweet or semisweet chocolate"
+        "ingredientDto": "melted and cooled bittersweet or semisweet chocolate"
       }
     ],
-    "steps": [
+    "stepDtos": [
       {
         "id": 0,
         "shortDescription": "Recipe Introduction",
@@ -311,22 +311,22 @@
       },
       {
         "id": 2,
-        "shortDescription": "Combine dry ingredients.",
-        "description": "2. Combine the cake flour, 400 grams (2 cups) of sugar, baking powder, and 1 teaspoon of salt in the bowl of a stand mixer. Using the paddle attachment, beat at low speed until the dry ingredients are mixed together, about one minute",
-        "videoURL": "https://d17h27t6h515a5.cloudfront.net/topher/2017/April/58ffde28_1-mix-all-dry-ingredients-yellow-cake/1-mix-all-dry-ingredients-yellow-cake.mp4",
+        "shortDescription": "Combine dry ingredientDtos.",
+        "description": "2. Combine the cake flour, 400 grams (2 cups) of sugar, baking powder, and 1 teaspoon of salt in the bowl of a stand mixer. Using the paddle attachment, beat at low speed until the dry ingredientDtos are mixed together, about one minute",
+        "videoURL": "https://d17h27t6h515a5.cloudfront.net/topher/2017/April/58ffde28_1-mix-all-dry-ingredientDtos-yellow-cake/1-mix-all-dry-ingredientDtos-yellow-cake.mp4",
         "thumbnailURL": ""
       },
       {
         "id": 3,
-        "shortDescription": "Prepare wet ingredients.",
+        "shortDescription": "Prepare wet ingredientDtos.",
         "description": "3. Lightly beat together the egg yolks, 1 tablespoon of vanilla, and 80 grams (1/3 cup) of the milk in a small bowl.",
-        "videoURL": "https://d17h27t6h515a5.cloudfront.net/topher/2017/April/58ffde36_2-mix-all-wet-ingredients-yellow-cake/2-mix-all-wet-ingredients-yellow-cake.mp4",
+        "videoURL": "https://d17h27t6h515a5.cloudfront.net/topher/2017/April/58ffde36_2-mix-all-wet-ingredientDtos-yellow-cake/2-mix-all-wet-ingredientDtos-yellow-cake.mp4",
         "thumbnailURL": ""
       },
       {
         "id": 4,
-        "shortDescription": "Add butter and milk to dry ingredients.",
-        "description": "4. Add 283 grams (20 tablespoons) of butter and 243 grams (1 cup) of milk to the dry ingredients. Beat at low speed until the dry ingredients are fully moistened, using a spatula to help with the incorporation if necessary. Then beat at medium speed for 90 seconds.",
+        "shortDescription": "Add butter and milk to dry ingredientDtos.",
+        "description": "4. Add 283 grams (20 tablespoons) of butter and 243 grams (1 cup) of milk to the dry ingredientDtos. Beat at low speed until the dry ingredientDtos are fully moistened, using a spatula to help with the incorporation if necessary. Then beat at medium speed for 90 seconds.",
         "videoURL": "",
         "thumbnailURL": ""
       },
@@ -334,7 +334,7 @@
         "id": 5,
         "shortDescription": "Add egg mixture to batter.",
         "description": "5. Scrape down the sides of the bowl. Add the egg mixture to the batter in three batches, beating for 20 seconds each time and then scraping down the sides.",
-        "videoURL": "https://d17h27t6h515a5.cloudfront.net/topher/2017/April/58ffde36_2-mix-all-wet-ingredients-yellow-cake/2-mix-all-wet-ingredients-yellow-cake.mp4",
+        "videoURL": "https://d17h27t6h515a5.cloudfront.net/topher/2017/April/58ffde36_2-mix-all-wet-ingredientDtos-yellow-cake/2-mix-all-wet-ingredientDtos-yellow-cake.mp4",
         "thumbnailURL": ""
       },
       {
@@ -393,54 +393,54 @@
   {
     "id": 4,
     "name": "Cheesecake",
-    "ingredients": [
+    "ingredientDtos": [
       {
         "quantity": 2,
         "measure": "CUP",
-        "ingredient": "Graham Cracker crumbs"
+        "ingredientDto": "Graham Cracker crumbs"
       },
       {
         "quantity": 6,
         "measure": "TBLSP",
-        "ingredient": "unsalted butter, melted"
+        "ingredientDto": "unsalted butter, melted"
       },
       {
         "quantity": 250,
         "measure": "G",
-        "ingredient": "granulated sugar"
+        "ingredientDto": "granulated sugar"
       },
       {
         "quantity": 1,
         "measure": "TSP",
-        "ingredient": "salt"
+        "ingredientDto": "salt"
       },
       {
         "quantity": 4,
         "measure": "TSP",
-        "ingredient": "vanilla,divided"
+        "ingredientDto": "vanilla,divided"
       },
       {
         "quantity": 680,
         "measure": "G",
-        "ingredient": "cream cheese, softened"
+        "ingredientDto": "cream cheese, softened"
       },
       {
         "quantity": 3,
         "measure": "UNIT",
-        "ingredient": "large whole eggs"
+        "ingredientDto": "large whole eggs"
       },
       {
         "quantity": 2,
         "measure": "UNIT",
-        "ingredient": "large egg yolks"
+        "ingredientDto": "large egg yolks"
       },
       {
         "quantity": 250,
         "measure": "G",
-        "ingredient": "heavy cream"
+        "ingredientDto": "heavy cream"
       }
     ],
-    "steps": [
+    "stepDtos": [
       {
         "id": 0,
         "shortDescription": "Recipe Introduction",
@@ -478,7 +478,7 @@
       },
       {
         "id": 5,
-        "shortDescription": "Mix cream cheese and dry ingredients.",
+        "shortDescription": "Mix cream cheese and dry ingredientDtos.",
         "description": "5. Beat the cream cheese, remaining 200 grams (1 cup) of sugar, and remaining 1/2 teaspoon salt on medium speed in a stand mixer with the paddle attachment for 3 minutes (or high speed if using a hand mixer). ",
         "videoURL": "https://d17h27t6h515a5.cloudfront.net/topher/2017/April/58ffdb3a_3-mix-sugar-salt-together-cheesecake/3-mix-sugar-salt-together-cheesecake.mp4",
         "thumbnailURL": ""

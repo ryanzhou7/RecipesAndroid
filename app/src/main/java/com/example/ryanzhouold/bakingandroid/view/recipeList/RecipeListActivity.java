@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.example.ryanzhouold.bakingandroid.R;
+import com.example.ryanzhouold.bakingandroid.model.dto.RecipeDto;
 import com.example.ryanzhouold.bakingandroid.view.recipeDetail.RecipeDetailActivity;
 import com.example.ryanzhouold.bakingandroid.model.constants.Keys;
-import com.example.ryanzhouold.bakingandroid.model.dto.Recipe;
 
 public class RecipeListActivity extends AppCompatActivity implements RecipeFragment.OnListFragmentInteractionListener{
 
@@ -27,7 +27,7 @@ public class RecipeListActivity extends AppCompatActivity implements RecipeFragm
     }
 
     @Override
-    public void onListFragmentInteraction(Recipe item) {
+    public void onListFragmentInteraction(RecipeDto item) {
         Intent detailedRecipeIntent = new Intent(this, RecipeDetailActivity.class);
         detailedRecipeIntent.putExtra(Keys.RECIPE_KEY, item);
         startActivity(detailedRecipeIntent);

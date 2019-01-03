@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.model.constants.Keys;
-import com.example.ryanzhouold.bakingandroid.model.dto.Step;
+import com.example.ryanzhouold.bakingandroid.model.dto.StepDto;
 
 import java.util.List;
 
@@ -21,9 +21,9 @@ public class StepActivity extends AppCompatActivity{
         findViewById(R.id.step_container);
         Intent intent = getIntent();
         if(intent.hasExtra(Keys.STEPS_KEY)){
-            List<Step> list = intent.getParcelableArrayListExtra(Keys.STEPS_KEY);
-            //Step[] steps = (Step[]) intent.getParcelableArrayExtra(Keys.STEPS_KEY);
-            //Step[] steps = (Step[]) intent.getParcelableArrayExtra(Keys.STEPS_KEY);
+            List<StepDto> list = intent.getParcelableArrayListExtra(Keys.STEPS_KEY);
+            //StepDto[] steps = (StepDto[]) intent.getParcelableArrayExtra(Keys.STEPS_KEY);
+            //StepDto[] steps = (StepDto[]) intent.getParcelableArrayExtra(Keys.STEPS_KEY);
             mStepFragment = StepFragment.newInstance(false, list);
             getSupportFragmentManager().beginTransaction().add(R.id.step_container, mStepFragment)
                     .commit();

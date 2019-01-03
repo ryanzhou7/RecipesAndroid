@@ -7,16 +7,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ryanzhouold.bakingandroid.R;
-import com.example.ryanzhouold.bakingandroid.model.dto.Recipe;
+import com.example.ryanzhouold.bakingandroid.model.dto.RecipeDto;
 
 import java.util.List;
 
 public class MyRecipeRecyclerViewAdapter extends RecyclerView.Adapter<MyRecipeRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Recipe> mValues;
+    private final List<RecipeDto> mValues;
     private final RecipeFragment.OnListFragmentInteractionListener mListener;
 
-    public MyRecipeRecyclerViewAdapter(List<Recipe> items, RecipeFragment.OnListFragmentInteractionListener listener) {
+    public MyRecipeRecyclerViewAdapter(List<RecipeDto> items, RecipeFragment.OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -54,7 +54,7 @@ public class MyRecipeRecyclerViewAdapter extends RecyclerView.Adapter<MyRecipeRe
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public Recipe mItem;
+        public RecipeDto mItem;
 
         public ViewHolder(View view) {
             super(view);
