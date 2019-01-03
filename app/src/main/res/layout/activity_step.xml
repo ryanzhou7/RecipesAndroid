@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ryanzhouold.bakingandroid.Step.StepActivity">
+    tools:context="com.example.ryanzhouold.bakingandroid.view.stepDto.StepActivity">
 
     <FrameLayout
         android:id="@+id/step_container"
