@@ -2,8 +2,8 @@ package com.example.ryanzhouold.bakingandroid;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-import android.support.test.InstrumentationRegistry;
-import android.support.test.runner.AndroidJUnit4;
+import androidx.test.InstrumentationRegistry;
+import androidx.test.runner.AndroidJUnit4;
 import com.example.ryanzhouold.bakingandroid.model.dao.RecipeDao;
 import com.example.ryanzhouold.bakingandroid.model.database.AppDatabase;
 import com.example.ryanzhouold.bakingandroid.model.pojo.Recipe;

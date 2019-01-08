@@ -1,6 +1,6 @@
 package com.example.ryanzhouold.bakingandroid.view.recipeList;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.example.ryanzhouold.bakingandroid.model.dto.RecipeDto;
 import com.example.ryanzhouold.bakingandroid.model.repository.RecipeRepository;

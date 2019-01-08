@@ -1,6 +1,6 @@
 package com.example.ryanzhouold.bakingandroid.model.dao;
 
-import android.arch.persistence.room.Dao;
+import androidx.room.Dao;
 
 @Dao
 public interface IngredientDao {
