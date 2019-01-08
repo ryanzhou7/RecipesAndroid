@@ -1,24 +1,11 @@
 package com.example.ryanzhouold.bakingandroid;
 
-import android.app.Instrumentation;
+import com.example.ryanzhouold.bakingandroid.data.dao.RecipeDao;
+import com.example.ryanzhouold.bakingandroid.data.database.AppDatabase;
+import com.example.ryanzhouold.bakingandroid.data.pojo.Recipe;
 
-import com.example.ryanzhouold.bakingandroid.model.dao.RecipeDao;
-import com.example.ryanzhouold.bakingandroid.model.database.AppDatabase;
-import com.example.ryanzhouold.bakingandroid.model.pojo.Recipe;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentMatcher;
-import org.mockito.ArgumentMatchers;
-import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.junit.Assert.*;
 
 /**
  * Example local unit test, which will execute on the development machine (host).

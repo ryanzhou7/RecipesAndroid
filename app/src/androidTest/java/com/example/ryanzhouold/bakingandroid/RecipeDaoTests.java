@@ -4,9 +4,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
-import com.example.ryanzhouold.bakingandroid.model.dao.RecipeDao;
-import com.example.ryanzhouold.bakingandroid.model.database.AppDatabase;
-import com.example.ryanzhouold.bakingandroid.model.pojo.Recipe;
+import com.example.ryanzhouold.bakingandroid.data.dao.RecipeDao;
+import com.example.ryanzhouold.bakingandroid.data.database.AppDatabase;
+import com.example.ryanzhouold.bakingandroid.data.pojo.Recipe;
 import org.junit.After;
 
 import org.junit.Before;
