@@ -15,11 +15,6 @@ public class StepPresenter implements StepContract.Presenter{
     }
 
     @Override
-    public void onAttach() {
-
-    }
-
-    @Override
     public void prevStepFrom(int pos) {
         if(pos<=0){
             mView.showMessage("You are at the first step");

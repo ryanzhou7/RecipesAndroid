@@ -27,7 +27,7 @@ public class RecipeListPresenter<V extends RecipeListContract.View> extends Base
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray data) {
                 List<RecipeDto> recipes = mRecipeRepository.convertToDtoFrom(data.toString());
-                mViewListener.showRecipes();
+                //mViewListener.showRecipes(recipes);
                 //TODO cache data
             }
         });

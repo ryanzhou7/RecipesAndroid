@@ -6,7 +6,7 @@ package com.example.ryanzhouold.bakingandroid.ui.base;
  */
 
 public class BasePresenter<T extends BaseContract.BaseView> implements BaseContract.BasePresenter<T>{
-    protected BaseContract.BaseView mView;
+    protected T mView;
     @Override
     public void onAttachTo(T view) {
         mView = view;

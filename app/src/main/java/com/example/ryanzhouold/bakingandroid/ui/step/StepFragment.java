@@ -79,10 +79,6 @@ public class StepFragment extends BaseFragment implements StepContract.View{
     }
 
     @Override
-    public void setPresenter(StepContract.Presenter presenter) {
-    }
-
-    @Override
     public void showStep(StepDto stepDto) {
         mTextViewStep.setText(stepDto.toString());
     }
