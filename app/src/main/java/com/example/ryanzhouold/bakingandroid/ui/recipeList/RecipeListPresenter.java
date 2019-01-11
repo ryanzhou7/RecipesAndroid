@@ -21,6 +21,7 @@ public class RecipeListPresenter<V extends RecipeListContract.View> extends Base
         mRecipeRepository = recipeRepository;
     }
 
+
     @Override
     public void loadRecipes() {
         mRecipeRepository.getRecipeData(new JsonHttpResponseHandler(){

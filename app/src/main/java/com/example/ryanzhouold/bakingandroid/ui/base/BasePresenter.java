@@ -1,13 +1,12 @@
 package com.example.ryanzhouold.bakingandroid.ui.base;
 
 /**
- * Every presenter in the app must either implement this interface or extend BasePresenter
+ * Every presenter in the app must either implement this interface or extend Presenter
  * indicating the MvpView type that wants to be attached with.
  */
 
-public class BasePresenter<T extends BaseContract.BaseView> implements BaseContract.BasePresenter<T>{
+public class BasePresenter<T extends BaseContract.View> implements BaseContract.Presenter<T> {
     protected T mView;
-    @Override
     public void onAttachTo(T view) {
         mView = view;
     }

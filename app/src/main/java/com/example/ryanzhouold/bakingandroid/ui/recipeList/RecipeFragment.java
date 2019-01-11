@@ -55,7 +55,7 @@ public class RecipeFragment extends BaseFragment implements RecipeListContract.V
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-        mPresenter = new RecipeListPresenter<>(new RecipeRepository(new RecipeWebservice()));
+        mPresenter = new RecipeListPresenter(new RecipeRepository(new RecipeWebservice()));
     }
 
     @Override

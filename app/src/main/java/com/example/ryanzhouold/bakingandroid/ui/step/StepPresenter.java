@@ -1,11 +1,12 @@
 package com.example.ryanzhouold.bakingandroid.ui.step;
 
 import com.example.ryanzhouold.bakingandroid.data.dto.StepDto;
+import com.example.ryanzhouold.bakingandroid.ui.base.BasePresenter;
 
 import java.util.List;
 
-public class StepPresenter implements StepContract.Presenter{
-
+public class StepPresenter<V extends StepContract.View> extends BasePresenter<V>
+        implements StepContract.Presenter<V>{
     private StepContract.View mView;
     private List<StepDto> mStepDtos;
 

@@ -39,6 +39,7 @@ public class RecipeFragment extends BaseFragment {
     private OnListFragmentInteractionListener mListener;
     private RecyclerView mRecyclerView;
     private RecipeDto mRecipeDto;
+
     @BindView(R.id.textViewIngredients) TextView mTextViewIngredients;
     private List<StepDto> mStepDtos;
 
