@@ -23,7 +23,7 @@ import com.example.ryanzhouold.bakingandroid.ui.base.BaseFragment;
 
 import java.util.List;
 
-public class RecipeFragment extends BaseFragment implements RecipeListContract.View{
+public class RecipeFragment extends BaseFragment implements RecipeListContract.View<RecipeDto>{
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -55,7 +55,7 @@ public class RecipeFragment extends BaseFragment implements RecipeListContract.V
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-        mPresenter = new RecipeListPresenter(new RecipeRepository(new RecipeWebservice()));
+        mPresenter = new RecipeListPresenter<>(new RecipeRepository(new RecipeWebservice()));
     }
 
     @Override

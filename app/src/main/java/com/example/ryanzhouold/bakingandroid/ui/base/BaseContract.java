@@ -5,6 +5,7 @@ public class BaseContract {
         void onAttachTo(V view);
         void onDetach();
     }
-    public interface BaseView{
+    public interface BaseView<P>{
+        //setPresenter(P p)
     }
 }

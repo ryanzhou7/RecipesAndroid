@@ -2,7 +2,6 @@ package com.example.ryanzhouold.bakingandroid.ui.recipeList;
 
 import com.example.ryanzhouold.bakingandroid.data.dto.RecipeDto;
 import com.example.ryanzhouold.bakingandroid.data.repository.RecipeRepository;
-import com.example.ryanzhouold.bakingandroid.ui.base.BaseContract;
 import com.example.ryanzhouold.bakingandroid.ui.base.BasePresenter;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -28,7 +27,7 @@ public class RecipeListPresenter<V extends RecipeListContract.View> extends Base
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray data) {
                 List<RecipeDto> recipes = mRecipeRepository.convertToDtoFrom(data.toString());
-                //mViewListener.showRecipes();
+                mViewListener.showRecipes();
                 //TODO cache data
             }
         });

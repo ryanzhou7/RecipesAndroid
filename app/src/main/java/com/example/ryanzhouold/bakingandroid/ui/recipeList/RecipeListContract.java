@@ -6,8 +6,8 @@ import com.example.ryanzhouold.bakingandroid.data.dto.RecipeDto;
 import java.util.List;
 
 public interface RecipeListContract {
-    interface View extends BaseContract.BaseView{
-        void showRecipes(List<RecipeDto> recipeDtos);
+    interface View<R> extends BaseContract.BaseView{
+        void showRecipes(List<R> recipeDtos);
     }
     interface Presenter<V extends View> extends BaseContract.BasePresenter<V>{
         void loadRecipes();
