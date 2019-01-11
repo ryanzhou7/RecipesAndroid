@@ -1,7 +1,6 @@
 package com.example.ryanzhouold.bakingandroid.ui.step;
 
 import com.example.ryanzhouold.bakingandroid.ui.base.BasePresenter;
-import com.example.ryanzhouold.bakingandroid.ui.base.BaseView;
 import com.example.ryanzhouold.bakingandroid.data.dto.StepDto;
 
 public interface StepContract {

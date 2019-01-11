@@ -18,16 +18,12 @@ import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.data.dto.RecipeDto;
 import com.example.ryanzhouold.bakingandroid.data.remote.RecipeWebservice;
 import com.example.ryanzhouold.bakingandroid.data.repository.RecipeRepository;
+import com.example.ryanzhouold.bakingandroid.ui.base.BaseContract;
+import com.example.ryanzhouold.bakingandroid.ui.base.BaseFragment;
 
 import java.util.List;
 
-/**
- * A fragment representing a list of Items.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
- * interface.
- */
-public class RecipeFragment extends Fragment implements RecipeListContract.View{
+public class RecipeFragment extends BaseFragment implements RecipeListContract.View{
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -38,15 +34,10 @@ public class RecipeFragment extends Fragment implements RecipeListContract.View{
     @BindView(R.id.progressBar_load_recipes) ProgressBar mProgressBar;
 
     private OnListFragmentInteractionListener mListener;
-    private RecipeListContract.Presenter mPresenter;
+    private RecipeListContract.Presenter<RecipeListContract.View> mPresenter;
     private List<RecipeDto> mRecipesCache;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public RecipeFragment() {
-    }
+    public RecipeFragment() {}
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
@@ -64,15 +55,16 @@ public class RecipeFragment extends Fragment implements RecipeListContract.View{
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-        mPresenter = new RecipeListPresenter(this, new RecipeRepository(new RecipeWebservice()));
-        mPresenter.loadRecipes();
+        mPresenter = new RecipeListPresenter(new RecipeRepository(new RecipeWebservice()));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recipe_list, container, false);
-        ButterKnife.bind(this, view);
+        setUnBinder(ButterKnife.bind(this, view));
+        mPresenter.onAttachTo(this);
+        mPresenter.loadRecipes();
         // Set the adapter
         if (mColumnCount <= 1) {
             mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -84,26 +76,9 @@ public class RecipeFragment extends Fragment implements RecipeListContract.View{
 
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnListFragmentInteractionListener) {
-            mListener = (OnListFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");
-        }
-    }
-
-    @Override
     public void onSaveInstanceState(Bundle outState){
         mPresenter.saveRecipes(mRecipesCache);
         super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
     }
 
     @Override
@@ -115,24 +90,15 @@ public class RecipeFragment extends Fragment implements RecipeListContract.View{
         mRecipesCache = recipeDtos;
     }
 
-
-    @Override
-    public void setPresenter(RecipeListContract.Presenter presenter) {
-
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
         void onListFragmentInteraction(RecipeDto item);
     }
+
+    @Override
+    public void onDestroyView() {
+        mPresenter.onDetach();
+        super.onDestroyView();
+    }
+
 }

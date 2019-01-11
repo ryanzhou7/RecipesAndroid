@@ -1,9 +1,9 @@
 package com.example.ryanzhouold.bakingandroid.ui.recipeList;
 
-import androidx.annotation.NonNull;
-
 import com.example.ryanzhouold.bakingandroid.data.dto.RecipeDto;
 import com.example.ryanzhouold.bakingandroid.data.repository.RecipeRepository;
+import com.example.ryanzhouold.bakingandroid.ui.base.BaseContract;
+import com.example.ryanzhouold.bakingandroid.ui.base.BasePresenter;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
@@ -12,14 +12,13 @@ import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
-public class RecipeListPresenter implements RecipeListContract.Presenter{
-
+public class RecipeListPresenter<V extends RecipeListContract.View> extends BasePresenter<V>
+        implements RecipeListContract.Presenter<V>{
     private RecipeListContract.View mViewListener;
     private final RecipeRepository mRecipeRepository;
 
     //@Inject
-    RecipeListPresenter(@NonNull RecipeListContract.View view, RecipeRepository recipeRepository){
-        mViewListener = view;
+    RecipeListPresenter(RecipeRepository recipeRepository){
         mRecipeRepository = recipeRepository;
     }
 
@@ -28,14 +27,11 @@ public class RecipeListPresenter implements RecipeListContract.Presenter{
         mRecipeRepository.getRecipeData(new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray data) {
-                if(mViewListener!=null){
-                    List<RecipeDto> recipes = mRecipeRepository.convertToDtoFrom(data.toString());
-                    //mViewListener.showRecipes();
-                }
+                List<RecipeDto> recipes = mRecipeRepository.convertToDtoFrom(data.toString());
+                //mViewListener.showRecipes();
                 //TODO cache data
             }
         });
-
     }
 
     @Override
@@ -43,10 +39,5 @@ public class RecipeListPresenter implements RecipeListContract.Presenter{
         if(recipeDtos !=null){
             //mRecipeRepository
         }
-    }
-
-    @Override
-    public void start() {
-
     }
 }

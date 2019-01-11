@@ -4,6 +4,8 @@ import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
+import butterknife.BindBool;
+import butterknife.BindInt;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -17,6 +19,7 @@ public class RecipeListActivity extends BaseActivity implements RecipeFragment.O
 
     private RecipeFragment mRecipeListFragment;
     @BindView(R.id.activity_recipe_list_toolbar) Toolbar mToolbar;
+    @BindInt(R.integer.numCols) int mNumCols;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +27,7 @@ public class RecipeListActivity extends BaseActivity implements RecipeFragment.O
         setContentView(R.layout.activity_recipe_list);
         setUnBinder(ButterKnife.bind(this));
         setSupportActionBar(mToolbar);
-        mRecipeListFragment = RecipeFragment.newInstance(getResources().getInteger(R.integer.numCols));
+        mRecipeListFragment = RecipeFragment.newInstance(mNumCols);
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.main_container, mRecipeListFragment).commit();
     }

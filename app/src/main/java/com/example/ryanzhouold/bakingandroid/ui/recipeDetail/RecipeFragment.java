@@ -19,6 +19,8 @@ import com.example.ryanzhouold.bakingandroid.data.constants.Keys;
 import com.example.ryanzhouold.bakingandroid.data.dto.IngredientDto;
 import com.example.ryanzhouold.bakingandroid.data.dto.RecipeDto;
 import com.example.ryanzhouold.bakingandroid.data.dto.StepDto;
+import com.example.ryanzhouold.bakingandroid.ui.base.BaseFragment;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,7 +30,7 @@ import java.util.List;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class RecipeFragment extends Fragment {
+public class RecipeFragment extends BaseFragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -80,7 +82,7 @@ public class RecipeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_step_list, container, false);
-        ButterKnife.bind(this, view);
+        setUnBinder(ButterKnife.bind(this, view));
         mRecyclerView = view.findViewById(R.id.list);
         setIngredientsOn(mRecipeDto.getIngredientDtos(), mTextViewIngredients);
         if (mColumnCount <= 1) {

@@ -17,12 +17,13 @@ import android.widget.Toast;
 import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.data.constants.Keys;
 import com.example.ryanzhouold.bakingandroid.data.dto.StepDto;
+import com.example.ryanzhouold.bakingandroid.ui.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class StepFragment extends Fragment implements StepContract.View{
+public class StepFragment extends BaseFragment implements StepContract.View{
 
     @BindView(R.id.button_previous) Button mNextStep;
     @BindView(R.id.button_next) Button mPrevStep;
@@ -59,7 +60,7 @@ public class StepFragment extends Fragment implements StepContract.View{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_step, container, false);
-        ButterKnife.bind(this, view);
+        setUnBinder(ButterKnife.bind(this, view));
         mStepPresenter = new StepPresenter(this, mStepDtos);
         showStep(mStepDtos.get(0));
         mPrevStep.setOnClickListener(new View.OnClickListener() {

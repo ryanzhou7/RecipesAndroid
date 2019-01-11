@@ -15,7 +15,7 @@ public class StepPresenter implements StepContract.Presenter{
     }
 
     @Override
-    public void start() {
+    public void onAttach() {
 
     }
 
