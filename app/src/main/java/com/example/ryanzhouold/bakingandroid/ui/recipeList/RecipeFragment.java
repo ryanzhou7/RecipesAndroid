@@ -1,8 +1,7 @@
 package com.example.ryanzhouold.bakingandroid.ui.recipeList;
 
-import android.content.Context;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
+
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +17,6 @@ import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.data.dto.RecipeDto;
 import com.example.ryanzhouold.bakingandroid.data.remote.RecipeWebservice;
 import com.example.ryanzhouold.bakingandroid.data.repository.RecipeRepository;
-import com.example.ryanzhouold.bakingandroid.ui.base.BaseContract;
 import com.example.ryanzhouold.bakingandroid.ui.base.BaseFragment;
 
 import java.util.List;

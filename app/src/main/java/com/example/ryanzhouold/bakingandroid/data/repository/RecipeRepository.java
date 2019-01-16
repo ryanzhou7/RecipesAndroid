@@ -1,33 +1,19 @@
 package com.example.ryanzhouold.bakingandroid.data.repository;
 
+import com.example.ryanzhouold.bakingandroid.data.dao.RecipeDao;
 import com.example.ryanzhouold.bakingandroid.data.dto.RecipeDto;
+import com.example.ryanzhouold.bakingandroid.data.pojo.Recipe;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.util.List;
 
-//@Singleton
-public class RecipeRepository implements RecipeDataSource{
-
-    private RecipeDataSource mRecipeDataSource;
-
-    //@Inject
-    public RecipeRepository(RecipeDataSource recipeDataSource){
-        this.mRecipeDataSource = recipeDataSource;
-    }
-
-    @Override
-    public void getRecipeData(AsyncHttpResponseHandler responseHandler) {
-        mRecipeDataSource.getRecipeData(responseHandler);
-    }
-
-    @Override
-    public void saveRecipes(List<RecipeDto> recipeDtos) {
-
-    }
-
-    public void convertToPojoFrom(List<RecipeDto> recipeDtos){
+public class RecipeRepository extends BaseRepository implements LocalRepository<Long, Recipe>,
+        RemoteRepository<RecipeDto> {
+    private RecipeDao mRecipeDao;
+    public RecipeRepository(){
+        //super();
+        this.mRecipeDao = super.mAppDatabase.recipeDao();
     }
 
     public List<RecipeDto> convertToDtoFrom(String data){
@@ -37,8 +23,36 @@ public class RecipeRepository implements RecipeDataSource{
         }
         return null;
     }
-    //private final webservice
-    //private final Dao
-    //private final Executor
 
+
+    @Override
+    public List<Recipe> findAll() {
+        return null;
+    }
+
+    @Override
+    public Recipe findById(Long id) {
+        return mRecipeDao.findById(id);
+    }
+
+    @Override
+    public Recipe create(Recipe... entity) {
+        return mRecipeDao.insert(entity);
+    }
+
+    @Override
+    public Recipe update(Recipe... entity) {
+        return mRecipeDao.update(entity);
+    }
+
+    @Override
+    public void delete(Recipe... entity) {
+        mRecipeDao.delete(entity);
+    }
+
+
+    @Override
+    public List<RecipeDto> getAll() {
+        return null;
+    }
 }

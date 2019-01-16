@@ -2,6 +2,8 @@ package com.example.ryanzhouold.bakingandroid;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+
+import androidx.room.Room;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 import com.example.ryanzhouold.bakingandroid.data.dao.RecipeDao;
@@ -21,7 +23,8 @@ public class RecipeDaoTests {
     private static final String TAG = "RecipeDaoTests";
     @Before
     public void setUp(){
-        db = AppDatabase.create(InstrumentationRegistry.getTargetContext(), true);
+        db = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getTargetContext(),
+                AppDatabase.class).build();
         recipeDao = db.recipeDao();
     }
 
@@ -44,14 +47,14 @@ public class RecipeDaoTests {
         assertThat(recipeDao.findAll().size(), is(1));
 
         //find one
-        Recipe found = recipeDao.findById(0);
+        Recipe found = recipeDao.findById(Long.valueOf(0));
         assertThat(isEqual(recipe, found), is(true));
 
         //update
         name = "pie";
         recipe.setName(name);
         recipeDao.update(recipe);
-        found = recipeDao.findById(0);
+        found = recipeDao.findById(Long.valueOf(0));
         assertThat(isEqual(recipe, found), is(true));
 
         //delete

@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 public class Recipe{
     @PrimaryKey
     @NonNull
-    private long id;
+    private Long id;
     private String name;
     //private IngredientDto ingredients;
     //private StepDto steps;
@@ -22,7 +22,7 @@ public class Recipe{
         this.image = image;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -38,7 +38,7 @@ public class Recipe{
         this.image = image;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
