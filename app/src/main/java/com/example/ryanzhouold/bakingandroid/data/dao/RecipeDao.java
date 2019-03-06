@@ -20,10 +20,10 @@ public interface RecipeDao{
     public Recipe findById(Long id);
 
     @Insert
-    public Recipe insert(Recipe... recipes);
+    public void insert(Recipe... recipes);
 
     @Update
-    public Recipe update(Recipe... recipes);
+    public void update(Recipe... recipes);
 
     @Delete
     public void delete(Recipe... recipes);

@@ -1,9 +1,7 @@
 package com.example.ryanzhouold.bakingandroid.di;
 
 import android.app.Application;
-
 import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
 
@@ -11,14 +9,13 @@ import dagger.Provides;
 public class AppModule {
 
     private Application mApplication;
-
     public AppModule(Application application) {
         mApplication = application;
     }
 
-    @Provides @Singleton
+    @Provides
+    @Singleton
     Application providesApplication() {
         return mApplication;
     }
-
 }

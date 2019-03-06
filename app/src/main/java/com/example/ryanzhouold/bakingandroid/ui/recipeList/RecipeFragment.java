@@ -15,7 +15,8 @@ import android.widget.ProgressBar;
 
 import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.data.dto.RecipeDto;
-import com.example.ryanzhouold.bakingandroid.data.remote.RecipeWebservice;
+import com.example.ryanzhouold.bakingandroid.data.network.RecipeWebservice;
+import com.example.ryanzhouold.bakingandroid.data.repository.BaseRepository;
 import com.example.ryanzhouold.bakingandroid.data.repository.RecipeRepository;
 import com.example.ryanzhouold.bakingandroid.ui.base.BaseFragment;
 
@@ -32,6 +33,7 @@ public class RecipeFragment extends BaseFragment implements RecipeListContract.V
     @BindView(R.id.progressBar_load_recipes) ProgressBar mProgressBar;
 
     private OnListFragmentInteractionListener mListener;
+
     private RecipeListContract.Presenter<RecipeListContract.View> mPresenter;
     private List<RecipeDto> mRecipesCache;
 
@@ -53,7 +55,8 @@ public class RecipeFragment extends BaseFragment implements RecipeListContract.V
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-        mPresenter = new RecipeListPresenter(new RecipeRepository(new RecipeWebservice()));
+        //mPresenter = new RecipeListPresenter(new BaseRepository());
+        //new RecipeWebservice()));
     }
 
     @Override
@@ -61,6 +64,7 @@ public class RecipeFragment extends BaseFragment implements RecipeListContract.V
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recipe_list, container, false);
         setUnBinder(ButterKnife.bind(this, view));
+        /*
         mPresenter.onAttachTo(this);
         mPresenter.loadRecipes();
         // Set the adapter
@@ -69,6 +73,7 @@ public class RecipeFragment extends BaseFragment implements RecipeListContract.V
         } else {
             mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), mColumnCount));
         }
+        */
         return view;
     }
 
@@ -86,6 +91,11 @@ public class RecipeFragment extends BaseFragment implements RecipeListContract.V
         mRecyclerView.setAdapter(recipeRecyclerViewAdapter);
         mProgressBar.setVisibility(View.GONE);
         mRecipesCache = recipeDtos;
+    }
+
+    //@Override
+    public void setPresenter(Object o) {
+
     }
 
     public interface OnListFragmentInteractionListener {

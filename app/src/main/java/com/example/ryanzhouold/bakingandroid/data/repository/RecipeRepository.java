@@ -1,6 +1,7 @@
 package com.example.ryanzhouold.bakingandroid.data.repository;
 
 import com.example.ryanzhouold.bakingandroid.data.dao.RecipeDao;
+import com.example.ryanzhouold.bakingandroid.data.database.AppDatabase;
 import com.example.ryanzhouold.bakingandroid.data.dto.RecipeDto;
 import com.example.ryanzhouold.bakingandroid.data.pojo.Recipe;
 import com.google.gson.Gson;
@@ -8,12 +9,13 @@ import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
 
+
 public class RecipeRepository extends BaseRepository implements LocalRepository<Long, Recipe>,
         RemoteRepository<RecipeDto> {
     private RecipeDao mRecipeDao;
-    public RecipeRepository(){
-        //super();
-        this.mRecipeDao = super.mAppDatabase.recipeDao();
+
+    public RecipeRepository(AppDatabase appDatabase){
+        this.mAppDatabase = appDatabase;
     }
 
     public List<RecipeDto> convertToDtoFrom(String data){
@@ -36,13 +38,13 @@ public class RecipeRepository extends BaseRepository implements LocalRepository<
     }
 
     @Override
-    public Recipe create(Recipe... entity) {
-        return mRecipeDao.insert(entity);
+    public void create(Recipe... entity) {
+        mRecipeDao.insert(entity);
     }
 
     @Override
-    public Recipe update(Recipe... entity) {
-        return mRecipeDao.update(entity);
+    public void update(Recipe... entity) {
+        mRecipeDao.update(entity);
     }
 
     @Override

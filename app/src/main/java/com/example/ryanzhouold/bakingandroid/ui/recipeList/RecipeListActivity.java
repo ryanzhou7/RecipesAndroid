@@ -10,10 +10,19 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import com.example.ryanzhouold.bakingandroid.R;
+import com.example.ryanzhouold.bakingandroid.data.dao.IngredientDao;
+import com.example.ryanzhouold.bakingandroid.data.database.AppDatabase;
 import com.example.ryanzhouold.bakingandroid.data.dto.RecipeDto;
+import com.example.ryanzhouold.bakingandroid.data.pojo.Recipe;
+import com.example.ryanzhouold.bakingandroid.di.AppComponent;
+import com.example.ryanzhouold.bakingandroid.di.RecipeApp;
 import com.example.ryanzhouold.bakingandroid.ui.base.BaseActivity;
 import com.example.ryanzhouold.bakingandroid.ui.recipeDetail.RecipeDetailActivity;
 import com.example.ryanzhouold.bakingandroid.data.constants.Keys;
+
+import java.util.List;
+
+import javax.inject.Inject;
 
 public class RecipeListActivity extends BaseActivity implements RecipeFragment.OnListFragmentInteractionListener{
 
@@ -21,15 +30,24 @@ public class RecipeListActivity extends BaseActivity implements RecipeFragment.O
     @BindView(R.id.activity_recipe_list_toolbar) Toolbar mToolbar;
     @BindInt(R.integer.numCols) int mNumCols;
 
+    @Inject
+    AppDatabase appDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_list);
         setUnBinder(ButterKnife.bind(this));
         setSupportActionBar(mToolbar);
+        /*
         mRecipeListFragment = RecipeFragment.newInstance(mNumCols);
+        RecipeListContract.Presenter p = new RecipeListPresenter(null);
+        //mRecipeListFragment.
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.main_container, mRecipeListFragment).commit();
+        */
+        ((RecipeApp) getApplication()).getAppComponent().inject(this);
+
     }
 
     @Override
