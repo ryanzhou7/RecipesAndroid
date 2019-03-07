@@ -47,6 +47,7 @@ public class RecipeListActivity extends BaseActivity implements RecipeFragment.O
                 .add(R.id.main_container, mRecipeListFragment).commit();
         */
         ((RecipeApp) getApplication()).getAppComponent().inject(this);
+        appDatabase.recipeDao().findAll();
 
     }
 

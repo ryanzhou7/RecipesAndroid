@@ -41,9 +41,15 @@ dependencies {
     def retrofit_version = "2.5.0"
     def room_version = "2.1.0-alpha04"
     def androidx_version = "1.1.0-alpha02"
+    def rxjava_version = '1.1.1'
 
-    //support testing
+    implementation "android.arch.persistence.room:runtime:$rxjava_version"
+    implementation "android.arch.persistence.room:rxjava2:$rxjava_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$rxjava_version"
+
+    //testing
     androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test:rules:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
     //room
