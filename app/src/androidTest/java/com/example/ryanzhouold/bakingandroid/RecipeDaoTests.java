@@ -4,18 +4,20 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 import androidx.room.Room;
-import androidx.test.InstrumentationRegistry;
-import androidx.test.runner.AndroidJUnit4;
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner;
+import androidx.test.platform.app.InstrumentationRegistry;
+
 import com.example.ryanzhouold.bakingandroid.data.dao.RecipeDao;
 import com.example.ryanzhouold.bakingandroid.data.database.AppDatabase;
 import com.example.ryanzhouold.bakingandroid.data.pojo.Recipe;
 import org.junit.After;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-@RunWith(AndroidJUnit4.class)
+@RunWith(AndroidJUnit4ClassRunner.class)
 public class RecipeDaoTests {
 
     private AppDatabase db;
@@ -23,7 +25,7 @@ public class RecipeDaoTests {
     private static final String TAG = "RecipeDaoTests";
     @Before
     public void setUp(){
-        db = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getTargetContext(),
+        db = Room.inMemoryDatabaseBuilder(InstrumentationRegistry.getInstrumentation().getTargetContext(),
                 AppDatabase.class).build();
         recipeDao = db.recipeDao();
     }
@@ -47,14 +49,14 @@ public class RecipeDaoTests {
         assertThat(recipeDao.findAll().size(), is(1));
 
         //find one
-        Recipe found = recipeDao.findById(Long.valueOf(0));
+        Recipe found = recipeDao.findById(0L);
         assertThat(isEqual(recipe, found), is(true));
 
         //update
         name = "pie";
         recipe.setName(name);
         recipeDao.update(recipe);
-        found = recipeDao.findById(Long.valueOf(0));
+        found = recipeDao.findById(0L);
         assertThat(isEqual(recipe, found), is(true));
 
         //delete

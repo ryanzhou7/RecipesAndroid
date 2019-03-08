@@ -7,22 +7,26 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.ryanzhouold.bakingandroid.R;
 import com.example.ryanzhouold.bakingandroid.data.dto.RecipeDto;
-import com.example.ryanzhouold.bakingandroid.data.network.RecipeWebservice;
-import com.example.ryanzhouold.bakingandroid.data.repository.BaseRepository;
-import com.example.ryanzhouold.bakingandroid.data.repository.RecipeRepository;
+import com.example.ryanzhouold.bakingandroid.data.network.RecipeWebService2;
 import com.example.ryanzhouold.bakingandroid.ui.base.BaseFragment;
 
 import java.util.List;
 
-public class RecipeFragment extends BaseFragment implements RecipeListContract.View<RecipeDto>{
+public class RecipeFragment extends BaseFragment implements RecipeListContract.View<RecipeDto>,
+        Callback<List<RecipeDto>> {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -57,6 +61,7 @@ public class RecipeFragment extends BaseFragment implements RecipeListContract.V
         }
         //mPresenter = new RecipeListPresenter(new BaseRepository());
         //new RecipeWebservice()));
+        RecipeWebService2.getJson(this);
     }
 
     @Override
@@ -64,16 +69,17 @@ public class RecipeFragment extends BaseFragment implements RecipeListContract.V
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recipe_list, container, false);
         setUnBinder(ButterKnife.bind(this, view));
+
         /*
         mPresenter.onAttachTo(this);
         mPresenter.loadRecipes();
+        */
         // Set the adapter
         if (mColumnCount <= 1) {
             mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         } else {
             mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), mColumnCount));
         }
-        */
         return view;
     }
 
@@ -98,6 +104,18 @@ public class RecipeFragment extends BaseFragment implements RecipeListContract.V
 
     }
 
+    @Override
+    public void onResponse(Call<List<RecipeDto>> call, Response<List<RecipeDto>> response) {
+        Log.w("Recipe", "response");
+        showRecipes(response.body());
+        Log.w("Recipe", response.body().get(0).getName());
+    }
+
+    @Override
+    public void onFailure(Call<List<RecipeDto>> call, Throwable t) {
+        Toast.makeText(getContext(), "Failed", Toast.LENGTH_SHORT).show();
+    }
+
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
         void onListFragmentInteraction(RecipeDto item);
@@ -108,5 +126,6 @@ public class RecipeFragment extends BaseFragment implements RecipeListContract.V
         mPresenter.onDetach();
         super.onDestroyView();
     }
+
 
 }
