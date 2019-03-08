@@ -2,7 +2,6 @@ package com.example.ryanzhouold.bakingandroid.ui.recipeList;
 
 import com.example.ryanzhouold.bakingandroid.data.database.AppDatabase;
 import com.example.ryanzhouold.bakingandroid.data.dto.RecipeDto;
-import com.example.ryanzhouold.bakingandroid.data.repository.BaseRepository;
 import com.example.ryanzhouold.bakingandroid.data.repository.RecipeRepository;
 import com.example.ryanzhouold.bakingandroid.ui.base.BasePresenter;
 
